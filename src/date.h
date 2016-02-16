@@ -8,5 +8,4 @@ class Date
 	
 
 };
-
 #endif	// DATE_H
