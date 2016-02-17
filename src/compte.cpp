@@ -12,6 +12,8 @@ Compte::Compte(string numCompte)
 	{
 		historique[i] = 0;
 	}
+	D = today;
+
 }
 
 Compte::~Compte()

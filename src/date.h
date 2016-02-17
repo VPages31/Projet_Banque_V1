@@ -15,6 +15,7 @@ class Date
 		int an;
 	public :
 		Date(int j=22, int m=02, int a=2016);
+		Date &operator=( const Date & D);
 		void ModifierDate();
 		void AfficherDate();
 		~Date();
