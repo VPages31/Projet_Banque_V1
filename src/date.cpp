@@ -6,21 +6,21 @@ Date::Date(int j, int m, int a)
 	this->mois = m;
 	this->an = a;
 	#ifdef DEBUG
-	cout << "Constructeur de Date " << (int)(this)<<endl;
+	cout << "Constructeur de Date " << /*(int)(this) <<*/endl;
 	#endif
 }
 
 Date::~Date()
 {
 	#ifdef DEBUG
-	cout << "Destructeur de Date " << (int)(this)<<endl;
+	cout << "Destructeur de Date " << /*(int)(this) <<*/endl;
 	#endif
 }
 
 void Date::ModifierDate()
 {
 	#ifdef DEBUG
-	cout << "Modification de Date " << (int)(this)<<endl;
+	cout << "Modification de Date " << /*(int)(this) <<*/endl;
 	#endif
 	cin >> jour >> mois >> an;
 }
