@@ -6,7 +6,7 @@
 
 class Compte
 {
-	private :
+	protected :
 		string numCompte;
 		double solde;
 		double historique[10];
@@ -15,7 +15,7 @@ class Compte
 		Compte(string numCompte);
 		~Compte();
 		void Consulter(); // Permet de consulter le solde et l'historique du compte
-		void Ajouter (double montant); // Ajoute de l'argent au solde 
+		void Ajouter (double montant); // Ajoute de l'argent au solde
 		void Retirer ( double montant ); // Retire de l'argent au solde
 		double GetSolde ();
 		//virtual void Menu() = 0;

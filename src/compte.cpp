@@ -4,7 +4,7 @@ Compte::Compte(string numCompte)
 {
 	int i = 0;
 	#ifdef DEBUG
-		cout << "Constructeur compte parametre" << endl;
+		cout << "Constructeur compte parametre " << (int)(this)<<endl;
 	#endif
 	this->numCompte = numCompte;
 	solde = 0;
@@ -17,7 +17,7 @@ Compte::Compte(string numCompte)
 Compte::~Compte()
 {
 	#ifdef DEBUG
-		cout << "Destructeur compte" << endl;
+		cout << "Destructeur compte " << (int)(this)<<endl;
 	#endif
 }
 
@@ -25,7 +25,7 @@ void Compte::Ajouter (double montant) // Ajoute de l'argent au solde (prends en 
 {
 	solde=solde+montant;
 	#ifdef DEBUG
-		cout << "Ajouter au Solde" << endl;
+		cout << "Ajouter au Solde " << (int)(this)<<endl;
 	#endif
 }
 
