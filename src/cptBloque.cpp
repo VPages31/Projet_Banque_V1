@@ -2,9 +2,10 @@
 
 //************* FONCTIONS MEMBRES CptBloque **************
 //Constructeur
-CptBloque::CptBloque(string num, int d): Compte(num)
+CptBloque::CptBloque(string num, int d, double inter): Compte(num)
 {
     blo_duree=d;
+    interets=inter;
     #ifdef DEBUG
 		cout << "Constructeur CptBloque parametres " << (int)(this)<<endl;
 	#endif
@@ -19,6 +20,7 @@ CptBloque &CptBloque::operator= (const CptBloque &c)
         Compte::historique[i]=c.Compte::historique[i];
     Compte::D=c.Compte::D;
     blo_duree=c.blo_duree;
+    interets=c.interets;
     blo_date_debl=c.blo_date_debl;
     #ifdef DEBUG
 		cout << "operator= CptBloque " << (int)(this)<<endl;
@@ -38,7 +40,7 @@ void CptBloque::AfficherCompte()
 {
     cout<<"Compte numero : "<<Compte::numCompte<<" ouvert le: ";
     D.AfficherDate();
-    cout<<"Solde: "<<Compte::solde<<endl;
+    cout<<"Solde: "<<Compte::solde<<" avec un taux d'interets de "<<interets<<endl;
     cout<<"duree du blocage : "<<blo_duree<<endl<<"date de fin de blocage: ";
     blo_date_debl.AfficherDate();
 }
@@ -51,12 +53,18 @@ void CptBloque::AfficherStatutBlocage()
 
 void CptBloque::AfficherDureeBlocage()
 {
-    //
+    cout<<"Compte bloque jusqu'au "<<blo_duree<<endl;
 }
 
 Date CptBloque::CalculerDateDeblocage()
 {
     //
+}
+
+CptBloque CptBloque::AjouterInterets()
+{
+    //
+    return (*this);
 }
 
 void CptBloque::Menu()

@@ -1,9 +1,7 @@
-#include "date.h"
-#include "today.h"
-#include <iostream>
-
 #ifndef COMPTE_H
 #define COMPTE_H
+#include "date.h"
+#include <iostream>
 
 class Compte
 {

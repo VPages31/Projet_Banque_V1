@@ -19,4 +19,4 @@ void Ligne(void);
 
 void Poubelle();
 
-#endif UTILS_H
+#endif //UTILS_H
