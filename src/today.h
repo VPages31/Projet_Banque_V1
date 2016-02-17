@@ -1,8 +1,8 @@
 #include "date.h"
 
-#ifndef TODAY
-#define TODAY
+#ifndef TODAY_H
+#define TODAY_H
 
 Date today (22,02,2016);
 
-#endif //TODAY
+#endif //TODAY_H

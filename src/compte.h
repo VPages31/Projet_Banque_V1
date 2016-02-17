@@ -11,7 +11,7 @@ class Compte
 		double historique[10];
 		Date D;
 	public :
-		Compte(string numCompte);
+		Compte(string numCompte, Date today=(22,02,2016));
 		~Compte();
 		void Consulter(); // Permet de consulter le solde et l'historique du compte
 		void Ajouter (double montant); // Ajoute de l'argent au solde

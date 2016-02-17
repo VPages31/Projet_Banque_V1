@@ -1,6 +1,6 @@
 #include "compte.h"
 
-Compte::Compte(string numCompte)
+Compte::Compte(string numCompte, Date today)
 {
 	int i = 0;
 	#ifdef DEBUG
