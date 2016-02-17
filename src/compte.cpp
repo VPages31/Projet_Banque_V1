@@ -12,7 +12,7 @@ Compte::Compte(string numCompte, Date today)
 	{
 		historique[i] = 0;
 	}
-	//D = today;
+	D = today;
 
 }
 
