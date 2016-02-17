@@ -18,5 +18,5 @@ class Date
 		void AfficherDate();
 		~Date();
 };
-
 #endif
+

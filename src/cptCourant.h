@@ -9,5 +9,4 @@ class CptCourant
 	
 
 };
-
 #endif	// CPTCOURANT_H

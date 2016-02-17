@@ -1,6 +1,8 @@
 #include "date.h"
 #include <iostream>
 
+using namespace std;
+
 #ifndef COMPTE_H
 #define COMPTE_H
 
@@ -18,6 +20,7 @@ class Compte
 		void Ajouter (double montant); // Ajoute de l'argent au solde 
 		void Retirer ( double montant ); // Retire de l'argent au solde
 		void Menu() = 0;
+
 };
 
 #endif

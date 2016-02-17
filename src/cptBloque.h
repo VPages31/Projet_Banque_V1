@@ -9,5 +9,4 @@ class CptBloque
 	
 
 };
-
 #endif	// CPTBLOQUE_H
