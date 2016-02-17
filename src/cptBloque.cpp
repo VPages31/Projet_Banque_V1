@@ -38,7 +38,7 @@ void CptBloque::AfficherCompte()
 {
     cout<<"Compte numero : "<<Compte::numCompte<<" ouvert le: ";
     D.AfficherDate();
-    cout<<endl<<"Solde: "<<Compte::solde<<endl;
+    cout<<"Solde: "<<Compte::solde<<endl;
     cout<<"duree du blocage : "<<blo_duree<<endl<<"date de fin de blocage: ";
     blo_date_debl.AfficherDate();
 }
@@ -97,10 +97,15 @@ int main()
 {
     CptBloque C1("05101520", 9); //numero de compte, bloque pendant 9 ans
     CptBloque C2;
+    cout<<"***************"<<endl;
     C1.AfficherCompte();
+    cout<<"***************"<<endl;
     C2.AfficherCompte();
+    cout<<"***************"<<endl;
     C2=C1;
+    cout<<"***************"<<endl;
     C2.AfficherCompte();
+    cout<<"***************"<<endl;
     C1.Menu();
     return 0;
 }
