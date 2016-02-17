@@ -15,6 +15,9 @@ test_cptEpargne : test_cptEpargne.o compte.o cptEpargne.o date.o
 testcompte : testcompte.o compte.o date.o
 	$(Compilo) -o testcompte.cestparti $^
 
+test_date : test_date.o date.o
+	$(Compilo) -o test_date.cestparti $^
+
 # Dépendances des tests unitaires
 testcompte.o : testcompte.cpp compte.o date.o
 	$(Compilo) -c $<
@@ -22,6 +25,8 @@ testcompte.o : testcompte.cpp compte.o date.o
 test_cptEpargne.o: test_cptEpargne.cpp compte.o cptEpargne.o date.o
 	$(Compilo) -c $<
 
+test_date.o : test_date.cpp date.o
+	$(Compilo) -c $<
 
 # Dépendances
 date.o : date.cpp date.h 
