@@ -18,7 +18,7 @@ class Compte
 		void Ajouter (double montant); // Ajoute de l'argent au solde
 		void Retirer ( double montant ); // Retire de l'argent au solde
 		double GetSolde ();
-		//virtual void Menu() = 0;
+		virtual void Menu() = 0;
 };
 
 #endif
