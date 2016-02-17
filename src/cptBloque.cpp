@@ -13,11 +13,11 @@ CptBloque::CptBloque(string num, int d): Compte(num)
 //Affectation
 CptBloque &CptBloque::operator= (const CptBloque &c)
 {
-    //Compte::numCompte=c.Compte::numCompte;
-    //Compte::solde=c.Compte::solde;
-    //for (int i=0; i<10; i++)
-        //Compte::historique[i]=c.Compte::historique[i];
-    //Compte::D=c.Compte::D;
+    Compte::numCompte=c.Compte::numCompte;
+    Compte::solde=c.Compte::solde;
+    for (int i=0; i<10; i++)
+        Compte::historique[i]=c.Compte::historique[i];
+    Compte::D=c.Compte::D;
     blo_duree=c.blo_duree;
     blo_date_debl=c.blo_date_debl;
     #ifdef DEBUG
@@ -59,6 +59,37 @@ Date CptBloque::CalculerDateDeblocage()
     //
 }
 
+void CptBloque::Menu()
+{
+    //CLEAR;
+    Ligne();
+    cout<< " / / / / / / COMPTE BLOQUE \\ \\ \\ \\ \\ \\ "<<endl;
+    Ligne();
+    AfficherCompte();
+    Ligne();
+    cout<<endl<< " 1: Ajouter de l'argent"<<endl;
+    cout<<endl<< " 0: Retour"<<endl;
+    char choix;
+    cin>>choix;
+    Poubelle(); //si jamais l'utilisateur entre plus d'1 caractere, on vide le cache
+    #ifdef DEBUG
+        cout << "votre choix: "<<choix<<endl;
+    #endif
+    switch(choix)
+    {
+    case 1:
+        #ifdef DEBUG
+            cout << "case 1 " <<endl;
+        #endif
+        break;
+    case 0:
+        #ifdef DEBUG
+            cout << "case 0 " <<endl;
+        #endif
+        break;
+    }
+}
+
 //************* FONCTIONS SURCHARGE Compte **************
 
 //************* main de test unitaire *******************
@@ -70,5 +101,6 @@ int main()
     C2.AfficherCompte();
     C2=C1;
     C2.AfficherCompte();
+    C1.Menu();
     return 0;
 }
