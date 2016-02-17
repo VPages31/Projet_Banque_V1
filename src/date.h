@@ -10,9 +10,10 @@ using namespace std;
 class Date
 {
 	protected :
+	    //
+	public :
 		int jour;
 		int mois;
-	public :
 		int an;
 		Date(int j=22, int m=2, int a=2016);
 		Date &operator=( const Date & D);

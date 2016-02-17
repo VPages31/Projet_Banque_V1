@@ -40,8 +40,9 @@ void CptBloque::AfficherCompte()
     cout<<"Compte numero : "<<Compte::numCompte<<" ouvert le: ";
     D.AfficherDate();
     cout<<"Solde: "<<Compte::solde<<" avec un taux d'interets de "<<interets<<endl;
-    cout<<"duree du blocage : "<<blo_duree<<endl<<"date de fin de blocage: ";
+    cout<<"duree du blocage : "<<blo_duree<<" ans"<<endl<<"date de fin de blocage: ";
     blo_date_debl.AfficherDate();
+    AfficherDureeBlocage();
 }
 
 void CptBloque::AfficherStatutBlocage()
@@ -54,12 +55,18 @@ void CptBloque::AfficherDureeBlocage()
 {
     int tps=0;
     tps=(blo_date_debl.an)-(today.an);
-    cout<<"Compte bloque pendant encore "<<blo_duree<<" ans"<<endl;
+    cout<<"Compte bloque pendant encore "<<tps<<" ans"<<endl;
 }
 
-Date CptBloque::CalculerDateDeblocage()
+void CptBloque::CalculerDateDeblocage()
 {
-    blo_date_debl.an=(this->D.an)+(this->blo_duree);
+    this->blo_date_debl.jour=(this->D.jour);
+    this->blo_date_debl.mois=(this->D.mois);
+    this->blo_date_debl.an=(this->D.an)+(this->blo_duree);
+    #ifdef DEBUG
+		cout << "Calcul date de deblocage " << (int)(this)<<endl;
+	#endif
+	//return (this->blo_date_debl);
 }
 
 CptBloque CptBloque::AjouterInterets()
@@ -120,16 +127,28 @@ int main()
     cout<<"date du jour: ";
     today.AfficherDate();
     cout<<"***************"<<endl;
-    CptBloque C1("05101520", 9); //numero de compte, bloque pendant 9 ans
-    //CptBloque C2;
+    CptBloque C1;
+    CptBloque C2;
     cout<<"***************"<<endl;
     C1.AfficherCompte();
-    //cout<<"***************"<<endl;
-    //C2.AfficherCompte();
-    //cout<<"***************"<<endl;
-    //C2=C1;
-    //cout<<"***************"<<endl;
-    //C2.AfficherCompte();
+    cout<<"***************"<<endl;
+    C2.AfficherCompte();
+    cout<<"***************"<<endl;
+    C2=C1;
+    cout<<"***************"<<endl;
+    C2.AfficherCompte();
+    cout<<"***************"<<endl;
+    C1.CalculerDateDeblocage();
+    C1.AfficherCompte();
+    cout<<"***************"<<endl;
+    C2.CalculerDateDeblocage();
+    C2.AfficherCompte();
+    cout<<"***************"<<endl;
+    cout<<"Merci d'entrer la nouvelle date du jour: ";
+    today.ModifierDate();
+    cout<<"***************"<<endl;
+    cout<<"date du jour: ";
+    today.AfficherDate();
     cout<<"***************"<<endl;
     C1.Menu();
     return 0;
