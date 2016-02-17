@@ -1,4 +1,5 @@
 #include "date.h"
+Date today( 11, 2, 2016);
 
 Date::Date(int j, int m, int a)
 {

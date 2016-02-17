@@ -1,10 +1,9 @@
 #include "cptBloque.h"
-
 //************* FONCTIONS MEMBRES CptBloque **************
 //Constructeur
-CptBloque::CptBloque(string num, int d, double inter): Compte(num, today)
+CptBloque::CptBloque(string num, Date d, int t, double inter): Compte(num, d)
 {
-    blo_duree=d;
+    blo_duree=t;
     interets=inter;
     #ifdef DEBUG
 		cout << "Constructeur CptBloque parametres " << (int)(this)<<endl;
@@ -53,12 +52,14 @@ void CptBloque::AfficherStatutBlocage()
 
 void CptBloque::AfficherDureeBlocage()
 {
-    cout<<"Compte bloque jusqu'au "<<blo_duree<<endl;
+    int tps=0;
+    tps=(blo_date_debl.an)-(today.an);
+    cout<<"Compte bloque pendant encore "<<blo_duree<<" ans"<<endl;
 }
 
 Date CptBloque::CalculerDateDeblocage()
 {
-    blo_date_debl=(today.an)-(this->D.an);
+    blo_date_debl.an=(this->D.an)+(this->blo_duree);
 }
 
 CptBloque CptBloque::AjouterInterets()
@@ -118,7 +119,7 @@ int main()
     cout<<"***************"<<endl;
     cout<<"date du jour: ";
     today.AfficherDate();
-    cout<<"***************"<<endl;/*
+    cout<<"***************"<<endl;
     CptBloque C1("05101520", 9); //numero de compte, bloque pendant 9 ans
     //CptBloque C2;
     cout<<"***************"<<endl;
@@ -130,6 +131,6 @@ int main()
     //cout<<"***************"<<endl;
     //C2.AfficherCompte();
     cout<<"***************"<<endl;
-    C1.Menu();*/
+    C1.Menu();
     return 0;
 }

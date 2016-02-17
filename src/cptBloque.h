@@ -1,5 +1,4 @@
 #include "compte.h"
-#include "today.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -19,7 +18,7 @@ protected:
     Date CalculerDateDeblocage();
 
 public:
-    CptBloque(string num="000001", int d=0, double inter=1.5);
+    CptBloque(string num="000001", Date d=today, int t=0, double inter=1.5);
     CptBloque &operator= (const CptBloque &c);
     ~CptBloque();
     CptBloque AjouterInterets();
