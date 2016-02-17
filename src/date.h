@@ -12,6 +12,7 @@ class Date
 		int jour;
 		int mois;
 		int an;
+
 	public :
 		Date(int j=22, int m=02, int a=2016);
 		void ModifierDate();

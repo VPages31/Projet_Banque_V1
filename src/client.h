@@ -19,9 +19,9 @@ class Client
 		vector CptEpargne;
 		vector CptLogement;
 		vector CptBloque;
-	
+
 	protected:
-	
+
 	public:
 	/** Fonctions internes a la classe Client **/
 		void Menu();
@@ -29,8 +29,6 @@ class Client
 		void AjouterCompte();
 		void SupprimerCompte();
 		void SupprimerClient();
-
-
 };
 
 #endif	// CLIENT_H
