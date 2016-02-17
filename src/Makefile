@@ -7,6 +7,22 @@ CFLAGS=-Wall
 ProjetBanque.cestparti: date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
 	$(Compilo) $(CFLAGS) -o $@ date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
 
+
+# Test unitiaires
+test_cptEpargne : test_cptEpargne.o compte.o cptEpargne.o date.o
+	$(Compilo) -o test_cptEpargne.cestparti $^
+
+testcompte : testcompte.o compte.o date.o
+	$(Compilo) -o testcompte.cestparti $^
+
+# Dépendances des tests unitaires
+testcompte.o : testcompte.cpp compte.o date.o
+	$(Compilo) -c $<
+	
+test_cptEpargne.o: test_cptEpargne.cpp compte.o cptEpargne.o date.o
+	$(Compilo) -c $<
+
+
 # Dépendances
 date.o : date.cpp date.h 
 	$(Compilo) $(CFLAGS) -c date.cpp
