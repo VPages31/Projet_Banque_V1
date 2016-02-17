@@ -12,10 +12,13 @@ Date::Date(int j, int m, int a)
 
 Date & Date::operator=( const Date & D)
 {
-   jour=D.jour;
-   mois=D.mois;
-   an=D.an;
-   return *this;
+    jour=D.jour;
+    mois=D.mois;
+    an=D.an;
+    #ifdef DEBUG
+	cout << "operator= de Date " << (int)(this) <<endl;
+    #endif
+    return *this;
 }
 
 Date::~Date()

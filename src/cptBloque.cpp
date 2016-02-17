@@ -2,7 +2,7 @@
 
 //************* FONCTIONS MEMBRES CptBloque **************
 //Constructeur
-CptBloque::CptBloque(string num, int d, double inter): Compte(num)
+CptBloque::CptBloque(string num, int d, double inter): Compte(num, today)
 {
     blo_duree=d;
     interets=inter;
@@ -58,10 +58,16 @@ void CptBloque::AfficherDureeBlocage()
 
 Date CptBloque::CalculerDateDeblocage()
 {
-    //
+    blo_date_debl=(today.an)-(this->D.an);
 }
 
 CptBloque CptBloque::AjouterInterets()
+{
+    //
+    return (*this);
+}
+
+CptBloque CptBloque::Retirer()
 {
     //
     return (*this);
@@ -76,6 +82,7 @@ void CptBloque::Menu()
     AfficherCompte();
     Ligne();
     cout<<endl<< " 1: Ajouter de l'argent"<<endl;
+    cout<<endl<< " 2: Retirer de l'argent"<<endl;
     cout<<endl<< " 0: Retour"<<endl;
     char choix;
     cin>>choix;
@@ -88,6 +95,11 @@ void CptBloque::Menu()
     case 1:
         #ifdef DEBUG
             cout << "case 1 " <<endl;
+        #endif
+        break;
+    case 2:
+        #ifdef DEBUG
+            cout << "case 2 " <<endl;
         #endif
         break;
     case 0:
@@ -103,17 +115,21 @@ void CptBloque::Menu()
 //************* main de test unitaire *******************
 int main()
 {
+    cout<<"***************"<<endl;
+    cout<<"date du jour: ";
+    today.AfficherDate();
+    cout<<"***************"<<endl;/*
     CptBloque C1("05101520", 9); //numero de compte, bloque pendant 9 ans
-    CptBloque C2;
+    //CptBloque C2;
     cout<<"***************"<<endl;
     C1.AfficherCompte();
+    //cout<<"***************"<<endl;
+    //C2.AfficherCompte();
+    //cout<<"***************"<<endl;
+    //C2=C1;
+    //cout<<"***************"<<endl;
+    //C2.AfficherCompte();
     cout<<"***************"<<endl;
-    C2.AfficherCompte();
-    cout<<"***************"<<endl;
-    C2=C1;
-    cout<<"***************"<<endl;
-    C2.AfficherCompte();
-    cout<<"***************"<<endl;
-    C1.Menu();
+    C1.Menu();*/
     return 0;
 }

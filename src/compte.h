@@ -1,7 +1,10 @@
 #ifndef COMPTE_H
 #define COMPTE_H
 #include "date.h"
+//#include "today.h"
 #include <iostream>
+
+extern Date today;
 
 class Compte
 {
@@ -11,7 +14,7 @@ class Compte
 		double historique[10];
 		Date D;
 	public :
-		Compte(string numCompte, Date today=(22,02,2016));
+		Compte(string numCompte, Date d= today);
 		~Compte();
 		void Consulter(); // Permet de consulter le solde et l'historique du compte
 		void Ajouter (double montant); // Ajoute de l'argent au solde

@@ -1,10 +1,12 @@
 #include "compte.h"
-//#include "today.h"
+#include "today.h"
 #include <iostream>
 #include <string>
 using namespace std;
 #ifndef CPTBLOQUE_H
 #define CPTBLOQUE_H
+
+extern Date today;
 
 class CptBloque : public Compte
 {
@@ -21,6 +23,7 @@ public:
     CptBloque &operator= (const CptBloque &c);
     ~CptBloque();
     CptBloque AjouterInterets();
+    CptBloque Retirer();
     void AfficherCompte();
     void AfficherStatutBlocage();
     void AfficherDureeBlocage();

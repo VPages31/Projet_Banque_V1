@@ -1,6 +1,6 @@
 #include "compte.h"
 
-Compte::Compte(string numCompte, Date today)
+Compte::Compte(string numCompte, Date d)
 {
 	int i = 0;
 	#ifdef DEBUG
@@ -12,7 +12,7 @@ Compte::Compte(string numCompte, Date today)
 	{
 		historique[i] = 0;
 	}
-	D = today;
+	D = d;
 
 }
 

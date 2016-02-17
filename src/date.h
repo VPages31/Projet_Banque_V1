@@ -12,9 +12,9 @@ class Date
 	protected :
 		int jour;
 		int mois;
-		int an;
 	public :
-		Date(int j=22, int m=02, int a=2016);
+		int an;
+		Date(int j=22, int m=2, int a=2016);
 		Date &operator=( const Date & D);
 		void ModifierDate();
 		void AfficherDate();
