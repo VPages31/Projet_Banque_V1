@@ -1,6 +1,6 @@
 #include "compte.h"
 
-Compte::Compte(double numCompte)
+Compte::Compte(string numCompte)
 {
 	int i = 0;
 	#ifdef DEBUG
@@ -21,7 +21,7 @@ Compte::~Compte()
 	#endif
 }
 
-void Ajouter (double montant) // Ajoute de l'argent au solde (prends en parametre le montant a retirer ou le demande dans la fonction?
+void Compte::Ajouter (double montant) // Ajoute de l'argent au solde (prends en parametre le montant a retirer ou le demande dans la fonction?
 {
 	solde=solde+montant;
 	#ifdef DEBUG
@@ -29,21 +29,27 @@ void Ajouter (double montant) // Ajoute de l'argent au solde (prends en parametr
 	#endif
 }
 
-void Consulter() // Permet de consulter le solde et l'historique du compte
+void Compte::Consulter() // Permet de consulter le solde et l'historique du compte
 {
 	int i = 0;
-	cout << "Solde : \t" << solde << endl << endl;
+	cout << "Solde : \t" << solde << endl;
 	cout << "Historique :" << endl;
 	for ( i = 0 ; i < 10 ; i ++)
 	{
-		cout << << historique[i];
+		cout << "\t" << historique[i];
 	}
+	cout << endl;
 }
 
-void Retirer ( double montant ) // Retire de l'argent au solde (meme probleme que ajouter
+void Compte::Retirer ( double montant ) // Retire de l'argent au solde (meme probleme que ajouter
 {
 	solde = solde - montant;
 	#ifdef DEBUG
 		cout << "Retirer au Solde" << endl;
 	#endif
+}
+
+double Compte::GetSolde ()
+{
+	return (solde);
 }
