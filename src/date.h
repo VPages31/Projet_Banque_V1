@@ -9,7 +9,7 @@ using namespace std;
 
 class Date
 {
-	private :
+	protected :
 		int jour;
 		int mois;
 		int an;
