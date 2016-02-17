@@ -9,20 +9,38 @@ ProjetBanque.cestparti: date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o co
 
 
 # Test unitiaires
+test_cptCourant : test_cptCourant.o compte.o cptCourant.o date.o
+	$(Compilo) -o test_cptCourant.cestparti $^
+
 test_cptEpargne : test_cptEpargne.o compte.o cptEpargne.o date.o
 	$(Compilo) -o test_cptEpargne.cestparti $^
+	
+test_cptBloque : test_cptBloque.o compte.o cptBloque.o date.o
+	$(Compilo) -o test_cptBloque.cestparti $^
+	
+test_cptPEL : test_cptPEL.o compte.o cptPEL.o date.o
+	$(Compilo) -o test_cptPEL.cestparti $^
 
-testcompte : testcompte.o compte.o date.o
-	$(Compilo) -o testcompte.cestparti $^
+test_compte : test_compte.o compte.o date.o
+	$(Compilo) -o test_compte.cestparti $^
 
 test_date : test_date.o date.o
 	$(Compilo) -o test_date.cestparti $^
 
 # Dépendances des tests unitaires
-testcompte.o : testcompte.cpp compte.o date.o
+test_compte.o : test_compte.cpp compte.o date.o
 	$(Compilo) -c $<
 	
+test_cptCourant.o: test_cptCourant.cpp compte.o cptCourant.o date.o
+	$(Compilo) -c $<
+
 test_cptEpargne.o: test_cptEpargne.cpp compte.o cptEpargne.o date.o
+	$(Compilo) -c $<
+
+test_cptBloque.o: test_cptBloque.cpp compte.o cptBloque.o date.o
+	$(Compilo) -c $<	
+
+test_cptPEL.o: test_cptPEL.cpp compte.o cptPEL.o date.o
 	$(Compilo) -c $<
 
 test_date.o : test_date.cpp date.o
