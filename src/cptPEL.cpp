@@ -7,7 +7,6 @@ CptPEL::CptPEL(string numCompte, Date d, int dureeBloquage, double versement): C
 	#endif
 	this->dureeBloquage = dureeBloquage;
 	this->versement = versement;
-	this->dateDebloquage = today;
 	this->dateDebloquage.an += dureeBloquage;
 } 
 	
@@ -55,7 +54,7 @@ void CptPEL::Menu()
 				break;
 	
 			case 5 :
-				
+				Emprunter();
 				break;
 	
 			case 6 :
@@ -68,12 +67,24 @@ void CptPEL::Menu()
 }
 void CptPEL::Emprunter()
 {
+	double montant = 0;
 	CLEAR;
 	Ligne();
 	cout << endl << "\tMenu PEL" << endl << endl;
 	Ligne();
-	if (
-	
+	if (dateDebloquage < today)
+	{
+		cout << " Combien voulez vous emprunter a la banque? " << endl;
+		cin >> montant;
+		Compte::Retirer(montant);
+	}
+	else
+	{
+		cout << "Le compte est toujours bloqué" << endl;
+		cout << " Appuyer sur entrée pour continuer ... " << endl;
+		Poubelle();
+		getchar();	
+	}	
 }
 
 void CptPEL::ModifierVersement()

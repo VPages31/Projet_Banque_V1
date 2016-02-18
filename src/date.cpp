@@ -49,7 +49,7 @@ Date & Date::operator=( const Date & D)
 
 ostream & operator<< (ostream & out, Date & D)
 {
-	cout << D.jour << D.mois << D.an;
+	cout << D.jour << " " << D.mois<< " " << D.an;
 	return out;
 }
 

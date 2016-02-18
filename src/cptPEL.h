@@ -23,5 +23,6 @@ class CptPEL : public Compte
 		void ModifierVersement();
 		void AjouterVersement();
 		void Consulter();
+		void Ajouter();
 };
 #endif	// CPTPEL_H
