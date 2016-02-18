@@ -39,7 +39,7 @@ void CptBloque::AfficherCompte()
 {
     cout<<"Compte numero : "<<Compte::numCompte<<" ouvert le: ";
     D.AfficherDate();
-    cout<<"Solde: "<<Compte::solde<<" avec un taux d'interets de "<<interets<<endl;
+    cout<<"Solde: "<<Compte::solde<<" avec un taux d'interets de "<<interets<<"%"<<endl;
     cout<<"duree du blocage : "<<blo_duree<<" ans"<<endl<<"date de fin de blocage: ";
     blo_date_debl.AfficherDate();
     AfficherDureeBlocage();
@@ -70,9 +70,9 @@ void CptBloque::CalculerDateDeblocage()
 
 CptBloque CptBloque::AjouterInterets()
 {
-    this->Compte::solde=this->Compte::solde+(this->Compte::solde*this->interets);
+    this->Compte::solde=this->Compte::solde+((this->Compte::solde*this->interets)/100);
     #ifdef DEBUG
-		cout<<(int)(this)<< " AjouterInterets: " <<interets<< " nouveau solde: " <<this->Compte::solde<<endl;
+		cout<<(int)(this)<< " AjouterInterets: " <<interets<< "% nouveau solde: " <<this->Compte::solde<<endl;
 	#endif
     return (*this);
 }
@@ -105,43 +105,58 @@ double CptBloque::GetSolde ()
 
 void CptBloque::Menu()
 {
-    CLEAR;
-    Ligne();
-    cout<< " / / / / / / COMPTE BLOQUE \\ \\ \\ \\ \\ \\ "<<endl;
-    Ligne();
-    AfficherCompte();
-    Ligne();
-    cout<<endl<< " 1: Ajouter de l'argent"<<endl;
-    cout<<endl<< " 2: Retirer de l'argent"<<endl;
-    cout<<endl<< " 3: Ajouter les interets"<<endl;
-    cout<<endl<< " 0: Retour"<<endl;
+
     char choix;
-    cin>>choix;
-    Poubelle(); //si jamais l'utilisateur entre plus d'1 caractere, on vide le cache
-    #ifdef DEBUG
-        cout << "votre choix: "<<choix<<endl;
-    #endif
-    switch(choix)
+    do
     {
-    case 1:
+        CLEAR;
+        Ligne();
+        cout<< " / / / / / / COMPTE BLOQUE \\ \\ \\ \\ \\ \\ "<<endl;
+        Ligne();
+        AfficherCompte();
+        Ligne();
+        cout<<endl<< " 1: Ajouter de l'argent"<<endl;
+        cout<<endl<< " 2: Retirer de l'argent"<<endl;
+        cout<<endl<< " 3: Ajouter les interets"<<endl;
+        cout<<endl<< " 0: Retour"<<endl;
+        cin>>choix;
+        Poubelle(); //si jamais l'utilisateur entre plus d'1 caractere, on vide le cache
         #ifdef DEBUG
-            cout << "case 1 " <<endl;
+            cout << "votre choix: "<<choix<<endl;
         #endif
-        break;
-    case 2:
-        #ifdef DEBUG
-            cout << "case 2 " <<endl;
-        #endif
-        break;
-    case 3:
-        #ifdef DEBUG
-            cout << "case 3 " <<endl;
-        #endif
-        break;
-    case 0:
-        #ifdef DEBUG
-            cout << "case 0 " <<endl;
-        #endif
-        break;
-    }
-}
+        double montant=0.0;
+        switch(choix)
+        {
+        case '1':
+            #ifdef DEBUG
+                cout << "case 1 " <<endl;
+            #endif
+            cout<< " Montant a ajouter: ";
+            cin>> montant;
+            this->Ajouter(montant);
+            break;
+        case '2':
+            #ifdef DEBUG
+                cout << "case 2 " <<endl;
+            #endif
+            cout<< " Montant a retirer: ";
+            cin>> montant;
+            this->Retirer(montant);
+            break;
+        case '3':
+            #ifdef DEBUG
+                cout << "case 3 " <<endl;
+            #endif
+            this->AjouterInterets();
+            break;
+        case '0':
+            #ifdef DEBUG
+                cout << "case 0 " <<endl;
+            #endif
+            break;
+        } //fin switch
+        cout<< "Appuyez sur Entree pour continuer"<<endl;
+        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
+    } //fin do
+    while (choix!='0');
+} // fin Menu()
