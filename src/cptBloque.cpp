@@ -45,7 +45,7 @@ void CptBloque::AfficherCompte()
     AfficherDureeBlocage();
 }
 
-void CptBloque::AfficherStatutBlocage()
+void CptBloque::AfficherStatutBlocage() //me souviens plus de ce que cette fonction doit faire...
 {
     cout<< "Votre compte est bloque jusqu'au ";
     blo_date_debl.AfficherDate();
@@ -66,7 +66,6 @@ void CptBloque::CalculerDateDeblocage()
     #ifdef DEBUG
 		cout << "Calcul date de deblocage " << (int)(this)<<endl;
 	#endif
-	//return (this->blo_date_debl);
 }
 
 CptBloque CptBloque::AjouterInterets()
@@ -151,5 +150,10 @@ int main()
     today.AfficherDate();
     cout<<"***************"<<endl;
     C1.Menu();
+    // ----------- to do: ------------
+    // -- ajout des interets
+    // -- depot d'argent
+    // -- retrait d'argent
+
     return 0;
 }
