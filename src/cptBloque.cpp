@@ -70,14 +70,37 @@ void CptBloque::CalculerDateDeblocage()
 
 CptBloque CptBloque::AjouterInterets()
 {
-    //
+    this->Compte::solde=this->Compte::solde+(this->Compte::solde*this->interets);
+    #ifdef DEBUG
+		cout<<(int)(this)<< " AjouterInterets: " <<interets<< " nouveau solde: " <<this->Compte::solde<<endl;
+	#endif
     return (*this);
 }
 
-CptBloque CptBloque::Retirer()
+//************* FONCTIONS SURCHARGE Compte **************
+
+void CptBloque::Ajouter (double montant) // Ajoute de l'argent au solde
 {
-    //
-    return (*this);
+    Compte::solde=Compte::solde+montant;
+    #ifdef DEBUG
+		cout << "Ajouter " << (int)(this)<<endl;
+	#endif
+}
+
+void CptBloque::Retirer ( double montant ) // Retire de l'argent au solde
+{
+    #ifdef DEBUG
+		cout << "Retirer " << (int)(this)<<endl;
+	#endif
+    if (blo_duree==0)
+        Compte::solde=Compte::solde-montant;
+    else
+        cout<< "Votre compte est bloque, vous ne pouvez pas retirer "<<endl;
+}
+
+double CptBloque::GetSolde ()
+{
+    return Compte::solde;
 }
 
 void CptBloque::Menu()
@@ -90,6 +113,7 @@ void CptBloque::Menu()
     Ligne();
     cout<<endl<< " 1: Ajouter de l'argent"<<endl;
     cout<<endl<< " 2: Retirer de l'argent"<<endl;
+    cout<<endl<< " 3: Ajouter les interets"<<endl;
     cout<<endl<< " 0: Retour"<<endl;
     char choix;
     cin>>choix;
@@ -109,6 +133,11 @@ void CptBloque::Menu()
             cout << "case 2 " <<endl;
         #endif
         break;
+    case 3:
+        #ifdef DEBUG
+            cout << "case 3 " <<endl;
+        #endif
+        break;
     case 0:
         #ifdef DEBUG
             cout << "case 0 " <<endl;
@@ -116,5 +145,3 @@ void CptBloque::Menu()
         break;
     }
 }
-
-//************* FONCTIONS SURCHARGE Compte **************

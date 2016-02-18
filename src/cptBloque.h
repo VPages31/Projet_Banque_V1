@@ -20,10 +20,12 @@ public:
     ~CptBloque();
     void CalculerDateDeblocage();
     CptBloque AjouterInterets();
-    CptBloque Retirer();
     void AfficherCompte();
     void AfficherStatutBlocage();
     void AfficherDureeBlocage();
+    void Ajouter (double montant); // Ajoute de l'argent au solde
+    void Retirer ( double montant ); // Retire de l'argent au solde
+    double GetSolde ();
     void Menu();
 };
 #endif	// CPTBLOQUE_H
