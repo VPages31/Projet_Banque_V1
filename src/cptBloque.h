@@ -22,6 +22,7 @@ public:
     CptBloque AjouterInterets();
     void AfficherCompte();
     void AfficherStatutBlocage();
+    void CalculerDureeBlocage();
     void AfficherDureeBlocage();
     void Ajouter (double montant); // Ajoute de l'argent au solde
     void Retirer ( double montant ); // Retire de l'argent au solde

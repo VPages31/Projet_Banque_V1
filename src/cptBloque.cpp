@@ -51,6 +51,22 @@ void CptBloque::AfficherStatutBlocage() //me souviens plus de ce que cette fonct
     blo_date_debl.AfficherDate();
 }
 
+void CptBloque::CalculerDureeBlocage()
+{
+    int tps=0;
+    if ((blo_date_debl.an)<(today.an)) //si la date de deblocage a ete depasse, on peut retirer
+    {
+        blo_duree=0;
+    }
+    else
+    {
+        tps=(blo_date_debl.an)-(today.an);
+        cout<<"Compte bloque pendant encore "<<tps<<" ans"<<endl;
+        // remarque: pour calculer la duree precise il faudrait prendre en compte le nombre de jours,
+        // ce qui est trop long sans passer par le time de la librairie a cause des annees bissextiles
+    }
+}
+
 void CptBloque::AfficherDureeBlocage()
 {
     int tps=0;
