@@ -34,54 +34,74 @@
 
 	void CptEpargne::Menu()
 	{
-		//CLEAR;
-		Ligne();
-		cout<< " / / / / / / COMPTE EPARGNE \\ \\ \\ \\ \\ \\ "<<endl;
-		Ligne();
-		//ConsulterCompte();
-		Ligne();
-		cout << endl << " 1: Ajouter de l'argent" << endl;
-		cout << endl << " 2: Retirer de l'argent" << endl;
-		cout << endl << " 3: Ajouter les interets" << endl;
-		cout << endl << " 0: Retour" << endl;
 		int choix;
-		cin >> choix;
-
-		#ifdef DEBUG
-		cout << "votre choix: "<< choix << endl;
-		#endif
-		switch(choix)
-		{	case 1:
+		CLEAR;
+		while(choix!=0)
+		{	
+			do
+			  {
+				cout << endl;
+				Ligne();
+				cout << " / / / / / / COMPTE EPARGNE \\ \\ \\ \\ \\ \\ " << endl;
+				Ligne();
+				cout << endl << " 1: Consulter le compte" << endl;
+				cout << endl << " 2: Ajouter de l'argent" << endl;
+				cout << endl << " 3: Retirer de l'argent" << endl;
+				cout << endl << " 4: Ajouter les interets" << endl;
+				cout << endl << " 5: Afficher l\'historique" << endl;
+				cout << endl << " 0: Retour" << endl;
+				cin >> choix;
+				
 				#ifdef DEBUG
-				cout << "case 1 " <<endl;
+					cout << "votre choix: "<< choix << endl;
 				#endif
-			Ajouter();
-		break;
-			case 2:
-				#ifdef DEBUG
-				cout << "case 1 " <<endl;
-				#endif
-			Retirer();
-		break;
-			case 3:
-				#ifdef DEBUG
-				cout << "case 1 " <<endl;
-				#endif
-			AjouterInterets();
-		break;
-			case 0:
-				#ifdef DEBUG
-				cout << "case 0 " <<endl;
-				#endif
-				// 
-			break;
-		default:
-			cout << endl << "Ce choix est incorrect" << endl;
+				switch(choix)
+				{	case 1:
+						#ifdef DEBUG
+						cout << "case 1 - Consulter" << endl;
+						#endif
+					Consulter();
+					break;
+					case 2:
+						#ifdef DEBUG
+						cout << "case 2 - Ajout" <<endl;
+						#endif
+					Ajouter();
+					break;
+					case 3:
+						#ifdef DEBUG
+						cout << "case 3 - Retrait" <<endl;
+						#endif
+					Retirer();
+					break;
+					case 4:
+						#ifdef DEBUG
+						cout << "case 4 - Interets" <<endl;
+						#endif
+					AjouterInterets();
+					break;
+					case 5:
+						#ifdef DEBUG
+						cout << "case 4 - Interets" <<endl;
+						#endif
+					Compte::Consulter();
+					break;
+					case 0:
+						#ifdef DEBUG
+						cout << "case 0 - Sortie" <<endl;
+						#endif
+						CLEAR;
+						return;
+					break;
+					default:
+						cout << endl << "Ce choix est incorrect" << endl;
+				}
+			} while(choix < 1 || choix > 5);
 		}
 	}
 
     void CptEpargne::Consulter()
-    {  	cout << "Compte Epargne n° " << Compte::numCompte << " ouvert le: ";
+    {  	cout << endl << "Compte Epargne n° " << Compte::numCompte << " ouvert le: ";
 		D.AfficherDate();
 		cout << "Solde: " << Compte::solde << " avec un taux d'interets de " << interets << "%" << endl;
     }
@@ -114,4 +134,4 @@
 		Compte::solde += res;
     }
     
-    
+

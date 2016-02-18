@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#define DEBUG 1
+#define DEBUG 0
 #include "compte.h"
 #include "cptEpargne.h"
 
@@ -9,7 +9,7 @@ using namespace std;
 
 main ()
 {
-	CptEpargne C("123456");
-//	C.Menu();
+	CptEpargne E("123456");
+	E.Menu();
 
 }
