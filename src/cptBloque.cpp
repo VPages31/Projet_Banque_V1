@@ -82,7 +82,7 @@ CptBloque CptBloque::Retirer()
 
 void CptBloque::Menu()
 {
-    //CLEAR;
+    CLEAR;
     Ligne();
     cout<< " / / / / / / COMPTE BLOQUE \\ \\ \\ \\ \\ \\ "<<endl;
     Ligne();
@@ -118,42 +118,3 @@ void CptBloque::Menu()
 }
 
 //************* FONCTIONS SURCHARGE Compte **************
-
-//************* main de test unitaire *******************
-int main()
-{
-    cout<<"***************"<<endl;
-    cout<<"date du jour: ";
-    today.AfficherDate();
-    cout<<"***************"<<endl;
-    CptBloque C1;
-    CptBloque C2;
-    cout<<"***************"<<endl;
-    C1.AfficherCompte();
-    cout<<"***************"<<endl;
-    C2.AfficherCompte();
-    cout<<"***************"<<endl;
-    C2=C1;
-    cout<<"***************"<<endl;
-    C2.AfficherCompte();
-    cout<<"***************"<<endl;
-    C1.CalculerDateDeblocage();
-    C1.AfficherCompte();
-    cout<<"***************"<<endl;
-    C2.CalculerDateDeblocage();
-    C2.AfficherCompte();
-    cout<<"***************"<<endl;
-    cout<<"Merci d'entrer la nouvelle date du jour: ";
-    today.ModifierDate();
-    cout<<"***************"<<endl;
-    cout<<"date du jour: ";
-    today.AfficherDate();
-    cout<<"***************"<<endl;
-    C1.Menu();
-    // ----------- to do: ------------
-    // -- ajout des interets
-    // -- depot d'argent
-    // -- retrait d'argent
-
-    return 0;
-}
