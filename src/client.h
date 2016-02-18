@@ -3,8 +3,14 @@
 #include <vector>
 using namespace std;
 #include "compte.h"
+#include "cptCourant.h"
+#include "cptEpargne.h"
+#include "cptBloque.h"
+#include "cptPEL.h"
 #ifndef CLIENT_H
 #define CLIENT_H
+
+extern Date today;
 
 class Client
 {
@@ -12,13 +18,13 @@ class Client
 		string nom;
 		string prenom;
 		string mail;
-		int telephone[];
+		int telephone[10];
 		string adresse;
 		int numClient;
-		vector CptCourant;
-		vector CptEpargne;
-		vector CptLogement;
-		vector CptBloque;
+		vector <CptCourant> listeCC;
+		vector <CptEpargne> listeLE;
+		vector <CptBloque> listeCB;
+		vector <CptPEL> listePEL;
 
 	protected:
 
@@ -28,6 +34,7 @@ class Client
 		void Afficher();
 		void AjouterCompte();
 		void SupprimerCompte();
+		void GererCompte(); //choix du compte a gerer
 		void SupprimerClient();
 };
 
