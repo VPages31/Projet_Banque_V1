@@ -22,6 +22,12 @@ Date & Date::operator=( const Date & D)
     return *this;
 }
 
+ostream & operator<< (ostream & out, Date & D)
+{
+	cout << D.jour << D.mois << D.an;
+	return out;
+}
+
 Date::~Date()
 {
 	#ifdef DEBUG

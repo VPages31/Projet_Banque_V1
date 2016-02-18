@@ -3,8 +3,9 @@
 #include<iostream>
 #include<string>
 using namespace std;
+#include <cstdlib>
 
-#ifdef UNIX
+#ifdef __linux
 #define CLEAR system("clear")
 #else
     #ifdef WIN32
