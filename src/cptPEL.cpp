@@ -40,19 +40,23 @@ void CptPEL::Menu()
 		{
 			case 1 :
 				Consulter();
-			break;
+				break;
 	
 			case 2 :
-			break;
+				ModifierVersement();
+				break;
 	
 			case 3 :
-			break;
+				AjouterVersement();
+				break;
 	
 			case 4 :
-			break;
+				Ajouter();
+				break;
 	
 			case 5 :
-			break;
+				
+				break;
 	
 			case 6 :
 			break;
@@ -64,6 +68,12 @@ void CptPEL::Menu()
 }
 void CptPEL::Emprunter()
 {
+	CLEAR;
+	Ligne();
+	cout << endl << "\tMenu PEL" << endl << endl;
+	Ligne();
+	if (
+	
 }
 
 void CptPEL::ModifierVersement()
@@ -88,6 +98,7 @@ void CptPEL::AjouterVersement()
 	Compte::solde += versement;
 	cout << endl << "Versement effectué" << endl << endl;
 	cout << "appuyer sur entrée pour continuer ...";
+	Poubelle();
 	getchar(); 
 }
 
@@ -102,4 +113,18 @@ void CptPEL::Consulter()
 	cout << endl << "appuyer sur entree pour continuer ...";
 	Poubelle();
 	getchar();
+}
+
+void CptPEL::Ajouter()
+{
+	double somme = 0;
+	do {
+		CLEAR;
+		Ligne();
+		cout << endl << "\tMenu PEL" << endl << endl;
+		Ligne();
+		cout << endl << "Quelle somme voulez vous ajouter ?" << endl;
+		cin >> somme;
+		Compte::Ajouter(somme);
+	}while (somme < 0);
 }

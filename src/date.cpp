@@ -11,6 +11,31 @@ Date::Date(int j, int m, int a)
 	#endif
 }
 
+bool Date::operator<(const Date & D)
+{
+	cout << "entrée fonction <" << endl;
+	if (this->an < D.an)
+	{
+		return true;
+	}
+	else
+	{
+		if (an == D.an && mois < D.mois)
+		{
+			return true;
+		}
+		else
+		{
+			if (mois == D.mois && jour < D.jour)
+			{
+				return true;
+			}
+            else
+                return false;
+		}
+	}
+}
+
 Date & Date::operator=( const Date & D)
 {
     jour=D.jour;

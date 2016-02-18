@@ -18,6 +18,7 @@ class Date
 		Date(int j=22, int m=2, int a=2016);
 		Date &operator=( const Date & D);
 		friend ostream & operator<< (ostream & out, Date & D);
+		bool operator<(const Date & D);
 		void ModifierDate();
 		void AfficherDate();
 		~Date();
