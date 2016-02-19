@@ -9,7 +9,9 @@ using namespace std;
 
 main ()
 {
-	CptEpargne E("123456");
+	
+	CptEpargne E("123456"); // Test constructeur avec parametres numCompte au minimum
+	
 	E.Menu();
 
 }

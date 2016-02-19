@@ -35,7 +35,7 @@
 	void CptEpargne::Menu()
 	{
 		int choix;
-		CLEAR;
+		CLEAR;	// Ecran vidé a la premiere apparition du menu
 		while(choix!=0)
 		{	
 			do
@@ -51,7 +51,7 @@
 				cout << endl << " 5: Afficher l\'historique" << endl;
 				cout << endl << " 0: Retour" << endl;
 				cin >> choix;
-				
+				CLEAR;
 				#ifdef DEBUG
 					cout << "votre choix: "<< choix << endl;
 				#endif
@@ -95,7 +95,7 @@
 					break;
 					default:
 						cout << endl << "Ce choix est incorrect" << endl;
-				}
+				}	
 			} while(choix < 1 || choix > 5);
 		}
 	}
@@ -103,30 +103,45 @@
     void CptEpargne::Consulter()
     {  	cout << endl << "Compte Epargne n° " << Compte::numCompte << " ouvert le: ";
 		D.AfficherDate();
-		cout << "Solde: " << Compte::solde << " avec un taux d'interets de " << interets << "%" << endl;
+		cout << "Solde: " << dec << Compte::solde << "€ avec un taux d'interets de " << interets << "%" << endl;
     }
 
     void CptEpargne::Ajouter()
-    { 	cout << "Saisir le montant : ";
+    { 	
+		static int i = 0;
+		cout << "Saisir le montant : ";
 		double m;
 		cin >> m;
 		
 		if(Compte::solde + m <= plafond)
-			Compte::solde = Compte::solde + m;
+		{	Compte::solde += m;
+			cout << "Vous ajoutez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
+			Compte::historique[i] = (0+m);
+		}
 		else
-			cout << endl << "plafond atteint, operation impossible" << endl;
-		
+		{
+			cout << endl << " Plafond atteint, operation impossible" << endl;
+		}
+		++i;
     }
 
     void CptEpargne::Retirer()
-    {  	cout << "Saisir le montant : ";
+    {	
+		static int i = 0;
+	  	cout << "Saisir le montant : ";
 		double m;
 		cin >> m;
 		
 		if(Compte::solde - m >= 0)
+		{
 			Compte::solde -= m;
+			cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
+		}
 		else
-			cout << endl << "plus de fonds restants, operation impossible" << endl;
+		{
+			cout << endl << "Minimum atteint, operation impossible" << endl;
+		}
+		--i;
     }
 
     void CptEpargne::AjouterInterets()

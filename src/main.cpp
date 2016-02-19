@@ -7,9 +7,6 @@ using namespace std;
 
 int main()
 {
-int main()
-{
-
     CptCourant C1;
     CptCourant C2;
     cout<<"***************"<<endl;
@@ -28,8 +25,4 @@ int main()
     // -- retrait d'argent
 
     return 0;
-}
-
-
-	return 0;
 }

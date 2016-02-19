@@ -1,8 +1,7 @@
 #Compilateur utilisé
 Compilo=g++
 SRC=$(wildcard *.c)
-CFLAGS=
-#-Wall
+CFLAGS=-Wall
 
 # Cible principale
 ProjetBanque.cestparti: utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
