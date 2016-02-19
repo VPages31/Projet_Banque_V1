@@ -89,7 +89,7 @@ void CptCourant::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************/ COMPTE COURANT /************** "<<endl;
+        cout<< " **************/ COMPTE COURANT \\************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();
