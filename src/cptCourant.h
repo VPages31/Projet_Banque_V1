@@ -20,8 +20,8 @@ public:
     ~CptCourant();
     void AfficherCompte();
     double RetirerAgio();
-    void Ajouter (double montant); // Ajoute de l'argent au solde de compte courant
-    void Retirer ( double montant ); // Retire de l'argent au solde de compte courant
+    //void Ajouter (double montant); // Ajoute de l'argent au solde de compte courant
+    //void Retirer ( double montant ); // Retire de l'argent au solde de compte courant
     double GetSolde ();
     void Menu();
 };

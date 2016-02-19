@@ -39,6 +39,7 @@ void CptCourant::AfficherCompte()
 
 
 }
+/*
 void CptCourant::Ajouter (double montant) // Ajoute de l'argent au solde
 {
     Compte::solde=Compte::solde+montant;
@@ -61,6 +62,7 @@ void CptCourant::Retirer ( double montant ) // Retire de l'argent au solde de co
           Poubelle();
 
 }
+*/
  double  CptCourant::RetirerAgio()
     {
 

@@ -34,6 +34,8 @@ void Compte::Consulter() // Permet de consulter le solde et l'historique du comp
 	cout << "Solde : \t" << solde << endl;
 	cout << "Historique :" << endl;
 	if (taille==0)
+        cout<< "aucune operation effectuee"<<endl;
+    else if (taille==1)
         cout << "\t" << historique[0];
     else
     {

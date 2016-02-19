@@ -230,6 +230,8 @@ void Client::SupprimerCompte()
                 #endif
                 listeCC.erase (listeCC.begin()+numero);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
             taille=(signed)listeLE.size();
@@ -257,6 +259,8 @@ void Client::SupprimerCompte()
                 #endif
                 listeLE.erase (listeLE.begin()+numero);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
             taille=(signed)listeCB.size();
@@ -284,6 +288,8 @@ void Client::SupprimerCompte()
                 #endif
                 listeCB.erase (listeCB.begin()+numero);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
             taille=(signed)listePEL.size();
@@ -311,6 +317,8 @@ void Client::SupprimerCompte()
                 #endif
                 listePEL.erase (listePEL.begin()+numero);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '0':
             #ifdef DEBUG
@@ -318,8 +326,6 @@ void Client::SupprimerCompte()
             #endif
             break;
         } //fin switch
-        cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
     } //fin do
     while (choix!='0');
 } //fin SupprimerCompte()
