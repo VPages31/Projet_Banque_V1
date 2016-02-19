@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "cptPEL.h"
+#include "client.h"
+#include "compte.h"
+
 main ()
 {
 	CLEAR;
-	
-	CptPEL P;
-	P.Menu();
-	
+		Client C;
+		C.Menu();
 	CLEAR;
 }

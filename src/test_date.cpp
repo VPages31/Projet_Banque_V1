@@ -2,6 +2,7 @@
 
 main()
 {
+CLEAR;
 	Date D(22,02,2016);
 	Date D1(23,02,2016);
 	Date D2(22,03,2016);
@@ -39,4 +40,5 @@ main()
 		cout << "true"<< endl;
 	else 
 		cout << "false"<< endl;
+CLEAR;
 }

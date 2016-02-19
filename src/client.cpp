@@ -31,7 +31,7 @@ void Client::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************\   COMPTE CLIENT   /************** "<<endl;
+        cout<< " **************\\   COMPTE CLIENT   /************** "<<endl;
         Ligne();
         Afficher();
         Ligne();

@@ -9,6 +9,12 @@ ProjetBanque.cestparti: utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cpt
 
 
 # Test unitiaires
+test_banque: utils.o date.o compte.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o client.o banque.o test_banque.o
+	$(Compilo) -o test_banque.cestparti $^
+
+test_client: utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o test_client.o
+	$(Compilo) -o test_client.cestparti $^
+	
 test_cptCourant: utils.o date.o cptCourant.o compte.o test_cptCourant.o
 	$(Compilo) -o test_cptCourant.cestparti $^
 
@@ -31,6 +37,12 @@ test_utils: utils.o test_utils.o
 	$(Compilo) -o test_utils.cestparti $^
 	
 # Dépendances des tests unitaires
+test_banque.o: test_compte.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o banque.o
+	$(Compilo) -c $<
+	
+test_client.o: test_client.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o
+	$(Compilo) -c $<
+	
 test_compte.o: test_compte.cpp utils.o date.o compte.o
 	$(Compilo) -c $<
 	

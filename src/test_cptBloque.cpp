@@ -1,13 +1,17 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "cptPEL.h"
+#include "compte.h"
+#include "cptBloque.h"
+
+
+
 main ()
 {
 	CLEAR;
 	
-	CptPEL P;
-	P.Menu();
+	CptBloque B("111111");
+	B.Menu();
 	
 	CLEAR;
 }

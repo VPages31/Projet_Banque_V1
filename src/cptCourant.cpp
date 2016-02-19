@@ -63,7 +63,7 @@ void CptCourant::Retirer ( double montant ) // Retire de l'argent au solde de co
 
 }
 */
- double  CptCourant::RetirerAgio()
+void CptCourant::RetirerAgio()
     {
         if(Compte::solde <= 0)
 			 {
@@ -76,10 +76,12 @@ void CptCourant::Retirer ( double montant ) // Retire de l'argent au solde de co
 			cout << endl << "Vous avez encore de l'argent,pas d'agios à retirer" << endl;
 
     }
+  
 double CptCourant::GetSolde ()
 {
     return Compte::solde;
 }
+
 void CptCourant::Menu()
 {
 
