@@ -5,6 +5,7 @@ CptBloque::CptBloque(string num, Date d, int t, double inter): Compte(num, d)
 {
     blo_duree=t;
     interets=inter;
+    CalculerDateDeblocage();
     #ifdef DEBUG
 		cout << "Constructeur CptBloque parametres " << (int)(this)<<endl;
 	#endif

@@ -70,8 +70,6 @@ void Client::Menu()
             #endif
             break;
         } //fin switch
-        cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
     } //fin do
     while (choix!='0');
 } // fin Menu()
@@ -109,7 +107,7 @@ void Client::AjouterCompte()
         case '1':
             taille=(signed)listeCC.size();
             #ifdef DEBUG
-                cout << "case 1: vector Comptes Courants " <<endl;
+                cout << "case 1: ajout Compte Courant " <<endl;
             #endif
             if (taille==0) //si aucun, on ajoute en premier element
             {
@@ -121,11 +119,13 @@ void Client::AjouterCompte()
                 CptCourant c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeCC.push_back(c);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
             taille=(signed)listeLE.size();
             #ifdef DEBUG
-                cout << "case 2: vector Livrets Epargne " <<endl;
+                cout << "case 2: ajout Livret Epargne " <<endl;
             #endif
             if (taille==0) //si aucun, on ajoute en premier element
             {
@@ -137,11 +137,13 @@ void Client::AjouterCompte()
                 CptEpargne c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeLE.push_back(c);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
             taille=(signed)listeCB.size();
             #ifdef DEBUG
-                cout << "case 3: vector Compte Bloque " <<endl;
+                cout << "case 3: ajout Compte Bloque " <<endl;
             #endif
             if (taille==0) //si aucun, on ajoute en premier element
             {
@@ -153,11 +155,13 @@ void Client::AjouterCompte()
                 CptBloque c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeCB.push_back(c);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
             taille=(signed)listePEL.size();
             #ifdef DEBUG
-                cout << "case 4: vector Plan Epargne Logement " <<endl;
+                cout << "case 4: ajout Plan Epargne Logement " <<endl;
             #endif
             if (taille==0) //si aucun, on ajoute en premier element
             {
@@ -169,6 +173,8 @@ void Client::AjouterCompte()
                 CptPEL c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listePEL.push_back(c);
             }
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '0':
             #ifdef DEBUG
@@ -176,8 +182,6 @@ void Client::AjouterCompte()
             #endif
             break;
         } //fin switch
-        cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
     } //fin do
     while (choix!='0');
 } //fin AjouterCompte()
@@ -207,7 +211,7 @@ void Client::SupprimerCompte()
         case '1':
             taille=(signed)listeCC.size();
             #ifdef DEBUG
-                cout << "case 1: vector Comptes Courants " <<endl;
+                cout << "case 1: supprimer Compte Courant " <<endl;
             #endif
             if (taille==0)
                 cout<<"Vous n'avez pas de Compte Courant"<<endl;
@@ -236,7 +240,7 @@ void Client::SupprimerCompte()
         case '2':
             taille=(signed)listeLE.size();
             #ifdef DEBUG
-                cout << "case 2: vector Livrets Epargne " <<endl;
+                cout << "case 2: supprimer Livret Epargne " <<endl;
             #endif
             if (taille==0)
                 cout<<"Vous n'avez pas de Livret Epargne"<<endl;
@@ -265,7 +269,7 @@ void Client::SupprimerCompte()
         case '3':
             taille=(signed)listeCB.size();
             #ifdef DEBUG
-                cout << "case 3: vector Compte Bloque " <<endl;
+                cout << "case 3: supprimer Compte Bloque " <<endl;
             #endif
             if (taille==0)
                 cout<<"Vous n'avez pas de Compte Bloque"<<endl;
@@ -294,7 +298,7 @@ void Client::SupprimerCompte()
         case '4':
             taille=(signed)listePEL.size();
             #ifdef DEBUG
-                cout << "case 4: vector Plan Epargne Logement " <<endl;
+                cout << "case 4: supprimer Plan Epargne Logement " <<endl;
             #endif
             if (taille==0)
                 cout<<"Vous n'avez pas de Plan Epargne Logement"<<endl;
@@ -370,6 +374,8 @@ void Client::GererCompte()
             }
             else
                 listeCC[0].Menu();
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
             taille=(signed)listeLE.size();
@@ -389,6 +395,8 @@ void Client::GererCompte()
             }
             else
                 listeLE[0].Menu();
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
             taille=(signed)listeCB.size();
@@ -408,6 +416,8 @@ void Client::GererCompte()
             }
             else
                 listeCB[0].Menu();
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
             taille=(signed)listePEL.size();
@@ -427,6 +437,8 @@ void Client::GererCompte()
             }
             else
                 listePEL[0].Menu();
+            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '0':
             #ifdef DEBUG
@@ -434,8 +446,6 @@ void Client::GererCompte()
             #endif
             break;
         } //fin switch
-        cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
     } //fin do
     while (choix!='0');
 } //fin GererCompte
