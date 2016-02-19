@@ -119,7 +119,7 @@ void Client::AjouterCompte()
                 CptCourant c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeCC.push_back(c);
             }
-            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            cout<< "Compte cree avec succes. Vous pouvez maintenant revenir dans le menu client et choisir Gerer Compte pour y acceder"<<endl<<"Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
@@ -137,7 +137,7 @@ void Client::AjouterCompte()
                 CptEpargne c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeLE.push_back(c);
             }
-            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            cout<< "Compte cree avec succes. Vous pouvez maintenant revenir dans le menu client et choisir Gerer Compte pour y acceder"<<endl<<"Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
@@ -155,7 +155,7 @@ void Client::AjouterCompte()
                 CptBloque c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listeCB.push_back(c);
             }
-            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            cout<< "Compte cree avec succes. Vous pouvez maintenant revenir dans le menu client et choisir Gerer Compte pour y acceder"<<endl<<"Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
@@ -173,7 +173,7 @@ void Client::AjouterCompte()
                 CptPEL c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
                 listePEL.push_back(c);
             }
-            cout<< "Appuyez sur Entree pour continuer"<<endl;
+            cout<< "Compte cree avec succes. Vous pouvez maintenant revenir dans le menu client et choisir Gerer Compte pour y acceder"<<endl<<"Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '0':
@@ -450,6 +450,8 @@ void Client::GererCompte()
     while (choix!='0');
 } //fin GererCompte
 
+//lorsqu'un client a ferme tous ses comptes, il n'est plus dans la banque et on va renvoyer cette donnee
+// a la banque pour qu'elle supprime ce client du vector Client
 void Client::SupprimerClient()
 {
     //
