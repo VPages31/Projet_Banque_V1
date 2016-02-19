@@ -51,6 +51,7 @@ void Compte::Retirer ( double montant ) // Retire de l'argent au solde (meme pro
 	#ifdef DEBUG
 		cout << "Retirer au Solde" << endl;
 	#endif
+	Historique((-1)*montant);
 }
 
 double Compte::GetSolde ()
@@ -63,5 +64,5 @@ void Compte::Historique(double s) // ajoute une transaction dans le vector histo
     #ifdef DEBUG
 		cout << "Ajouter a l'historique " << (int)(this)<<endl;
 	#endif
-    historique.push_back(s);
+    historique.push_back( (signed) s);
 }
