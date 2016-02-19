@@ -44,7 +44,7 @@
 		int choix;
 		CLEAR;
 		while(choix!=0)
-		{	
+		{
 			do
 			  {
 				
@@ -103,7 +103,7 @@
 					case 0:
 						#ifdef DEBUG
 							cout << "case 0 - Sortie" <<endl;
-						#endif
+						#endif						
 						return;
 					break;
 					default:
@@ -113,8 +113,8 @@
 						CLEAR;
 				}	
 			} while(choix < 1 || choix > 5);
-		}
-	}
+		} // 
+	}///
 
     void CptEpargne::Consulter()
     {	Ligne();
@@ -131,7 +131,7 @@
     }
 
     void CptEpargne::Ajouter()
-    {	cout << "Saisir le montant : ";
+    {	cout << endl << "Saisir le montant : ";
 		double m;
 		cin >> m;
 		
@@ -141,7 +141,8 @@
 			cout << "Vous ajoutez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << "€"<< endl;
 		}
 		else
-		{	cout << endl << " Plafond atteint, operation impossible" << endl;
+		{	cout << endl << "\t Plafond atteint, operation impossible" << endl;
+			cout << "\t Ouvrez un nouveau compte epargne" << endl;
 		}
 		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
 		Poubelle();
@@ -149,26 +150,33 @@
     }
 
     void CptEpargne::Retirer()
-	{	cout << "Saisir le montant : ";
-		double m;
-		cin >> m;
+	{
+		do
+		{
+			cout << endl << "Saisir le montant : ";
+			double m;
+			cin >> m;
+			if(m==0)
+			{	cout << 
+		} while( m == 0);	// Impossible de retirer 0€	
 		
-		if(Compte::solde - m >= 0)
-		{ 	Compte::solde -= (m);
-			Compte::Historique((-1)*m);
-			cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
+			if(Compte::solde - m >= 0)
+			{ 	Compte::solde -= (m);
+				Compte::Historique((-1)*m);
+				cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
+			}
+			else
+			{ 	cout << endl << "Minimum atteint, operation impossible" << endl;
+			}
+		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+		Poubelle();
+		CLEAR;
 		}
-		else
-		{ 	cout << endl << "Minimum atteint, operation impossible" << endl;
-		}
-	cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
-	Poubelle();
-	CLEAR;
-    }
 
     void CptEpargne::AjouterInterets()
     { 	double res = Compte::solde*(interets/100);
 		Compte::solde += res;
-		Compte::Historique(res);
+		if(res!=0) // si le calcul n'est pas fait sur rien, inutil de rajouter une opération sur un solde de 0€ dans l'historique
+			Compte::Historique(res);
     }
     

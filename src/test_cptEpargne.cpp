@@ -13,5 +13,6 @@ main ()
 	CptEpargne E("123456"); // Test constructeur avec parametres numCompte au minimum
 	
 	E.Menu();
-
+	
+	CLEAR;
 }
