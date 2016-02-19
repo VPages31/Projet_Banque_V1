@@ -89,6 +89,7 @@ void Client::AjouterCompte()
 {
     char choix='z';
     int numero=0;
+    int taille=0;
     do
     {
         Ligne();
@@ -106,40 +107,68 @@ void Client::AjouterCompte()
         switch(choix)
         {
         case '1':
+            taille=(signed)listeCC.size();
             #ifdef DEBUG
                 cout << "case 1: vector Comptes Courants " <<endl;
             #endif
-            if (listeCC.size()==0) //si aucun, on ajoute en premier element
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            if (taille==0) //si aucun, on ajoute en premier element
+            {
+                CptCourant c;
+                listeCC.push_back(c);
+            }
             else //si au moins un compte present, on ajoute a la suite
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            {
+                CptCourant c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
+                listeCC.push_back(c);
+            }
             break;
         case '2':
+            taille=(signed)listeLE.size();
             #ifdef DEBUG
                 cout << "case 2: vector Livrets Epargne " <<endl;
             #endif
-            if (listeLE.size()==0) //si aucun, on ajoute en premier element
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            if (taille==0) //si aucun, on ajoute en premier element
+            {
+                CptEpargne c;
+                listeLE.push_back(c);
+            }
             else //si au moins un compte present, on ajoute a la suite
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            {
+                CptEpargne c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
+                listeLE.push_back(c);
+            }
             break;
         case '3':
+            taille=(signed)listeCB.size();
             #ifdef DEBUG
                 cout << "case 3: vector Compte Bloque " <<endl;
             #endif
-            if (listeCB.size()==0) //si aucun, on ajoute en premier element
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            if (taille==0) //si aucun, on ajoute en premier element
+            {
+                CptBloque c;
+                listeCB.push_back(c);
+            }
             else //si au moins un compte present, on ajoute a la suite
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            {
+                CptBloque c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
+                listeCB.push_back(c);
+            }
             break;
         case '4':
+            taille=(signed)listePEL.size();
             #ifdef DEBUG
                 cout << "case 4: vector Plan Epargne Logement " <<endl;
             #endif
-            if (listePEL.size()==0) //si aucun, on ajoute en premier element
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            if (taille==0) //si aucun, on ajoute en premier element
+            {
+                CptPEL c;
+                listePEL.push_back(c);
+            }
             else //si au moins un compte present, on ajoute a la suite
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+            {
+                CptPEL c;// <--------------------- A modifier en incrementant le numero de compte c("taille")
+                listePEL.push_back(c);
+            }
             break;
         case '0':
             #ifdef DEBUG
@@ -157,6 +186,7 @@ void Client::SupprimerCompte()
 {
     char choix='z';
     int numero=0;
+    int taille=0;
     unsigned int i;
     do
     {
@@ -175,107 +205,111 @@ void Client::SupprimerCompte()
         switch(choix)
         {
         case '1':
+            taille=(signed)listeCC.size();
             #ifdef DEBUG
                 cout << "case 1: vector Comptes Courants " <<endl;
             #endif
-            if (listeCC.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Compte Courant"<<endl;
-            else if (listeCC.size()==1)
+            else if (taille==1)
             {
                 #ifdef DEBUG
                     cout << "suppression listeCC[0] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeCC.erase (listeCC.begin()+1);
             }
             else
             {
                 cout<< " Merci d'indiquer le numero du compte a supprimer: ";
-                for (i=0; i<listeCC.size(); i++)
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
                 #ifdef DEBUG
                     cout << "suppression listeCC[numero] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeCC.erase (listeCC.begin()+numero);
             }
             break;
         case '2':
+            taille=(signed)listeLE.size();
             #ifdef DEBUG
                 cout << "case 2: vector Livrets Epargne " <<endl;
             #endif
-            if (listeLE.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Livret Epargne"<<endl;
-            else if (listeLE.size()==1)
+            else if (taille==1)
             {
                 #ifdef DEBUG
                     cout << "suppression listeLE[0] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeLE.erase (listeLE.begin()+1);
             }
             else
             {
-                cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listeLE.size(); i++)
+                cout<< " Merci d'indiquer le numero du compte a supprimer: ";
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
                 #ifdef DEBUG
                     cout << "suppression listeLE[numero] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeLE.erase (listeLE.begin()+numero);
             }
             break;
         case '3':
+            taille=(signed)listeCB.size();
             #ifdef DEBUG
                 cout << "case 3: vector Compte Bloque " <<endl;
             #endif
-            if (listeCB.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Compte Bloque"<<endl;
-            else if (listeCB.size()==1)
+            else if (taille==1)
             {
                 #ifdef DEBUG
                     cout << "suppression listeCB[0] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeCB.erase (listeCB.begin()+1);
             }
             else
             {
-                cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listeCB.size(); i++)
+                cout<< " Merci d'indiquer le numero du compte a supprimer: ";
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
                 #ifdef DEBUG
                     cout << "suppression listeCB[numero] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listeCB.erase (listeCB.begin()+numero);
             }
             break;
         case '4':
+            taille=(signed)listePEL.size();
             #ifdef DEBUG
                 cout << "case 4: vector Plan Epargne Logement " <<endl;
             #endif
-            if (listePEL.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Plan Epargne Logement"<<endl;
-            else if (listePEL.size()==1)
+            else if (taille==1)
             {
                 #ifdef DEBUG
                     cout << "suppression listePEL[0] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listePEL.erase (listePEL.begin()+1);
             }
             else
             {
-                cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listePEL.size(); i++)
+                cout<< " Merci d'indiquer le numero du compte a supprimer: ";
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
                 #ifdef DEBUG
                     cout << "suppression listePEL[numero] "<<endl;
                 #endif
-                cout<<"...en developpement..."; // <-------------------------------- A faire
+                listePEL.erase (listePEL.begin()+numero);
             }
             break;
         case '0':
@@ -294,7 +328,8 @@ void Client::GererCompte()
 {
     char choix='z';
     int numero=0;
-    unsigned int i;
+    int taille=0;
+    int i;
     do
     {
         Ligne();
@@ -312,15 +347,16 @@ void Client::GererCompte()
         switch(choix)
         {
         case '1':
+            taille=(signed)listeCC.size();
             #ifdef DEBUG
                 cout << "case 1: vector Comptes Courants " <<endl;
             #endif
-            if (listeCC.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Compte Courant"<<endl;
-            else if (listeCC.size()>1)
+            else if (taille>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listeCC.size(); i++)
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -330,15 +366,16 @@ void Client::GererCompte()
                 listeCC[0].Menu();
             break;
         case '2':
+            taille=(signed)listeLE.size();
             #ifdef DEBUG
                 cout << "case 2: vector Livrets Epargne " <<endl;
             #endif
-            if (listeLE.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Livret Epargne"<<endl;
-            else if (listeLE.size()>1)
+            else if (taille>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listeLE.size(); i++)
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -348,15 +385,16 @@ void Client::GererCompte()
                 listeLE[0].Menu();
             break;
         case '3':
+            taille=(signed)listeCB.size();
             #ifdef DEBUG
                 cout << "case 3: vector Compte Bloque " <<endl;
             #endif
-            if (listeCB.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Compte Bloque"<<endl;
-            else if (listeCB.size()>1)
+            else if (taille>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listeCB.size(); i++)
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -366,15 +404,16 @@ void Client::GererCompte()
                 listeCB[0].Menu();
             break;
         case '4':
+            taille=(signed)listePEL.size();
             #ifdef DEBUG
                 cout << "case 4: vector Plan Epargne Logement " <<endl;
             #endif
-            if (listePEL.size()==0)
+            if (taille==0)
                 cout<<"Vous n'avez pas de Plan Epargne Logement"<<endl;
-            else if (listePEL.size()>1)
+            else if (taille>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (i=0; i<listePEL.size(); i++)
+                for (i=0; i<taille; i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;

@@ -158,6 +158,8 @@ void CptBloque::Menu()
             cout<< " Montant a ajouter: ";
             cin>> montant;
             this->Ajouter(montant);
+        cout<< "Appuyez sur Entree pour continuer"<<endl;
+        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
             #ifdef DEBUG
@@ -166,18 +168,24 @@ void CptBloque::Menu()
             cout<< " Montant a retirer: ";
             cin>> montant;
             this->Retirer(montant);
+        cout<< "Appuyez sur Entree pour continuer"<<endl;
+        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
             #ifdef DEBUG
                 cout << "case 3 " <<endl;
             #endif
             this->AjouterInterets();
+        cout<< "Appuyez sur Entree pour continuer"<<endl;
+        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
             #ifdef DEBUG
                 cout << "case 4 " <<endl;
             #endif
             this->Consulter();
+        cout<< "Appuyez sur Entree pour continuer"<<endl;
+        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '0':
             #ifdef DEBUG
@@ -185,8 +193,6 @@ void CptBloque::Menu()
             #endif
             break;
         } //fin switch
-        cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
     } //fin do
     while (choix!='0');
 } // fin Menu()
