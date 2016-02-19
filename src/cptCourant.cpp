@@ -65,7 +65,6 @@ void CptCourant::Retirer ( double montant ) // Retire de l'argent au solde de co
 */
  double  CptCourant::RetirerAgio()
     {
-
         if(Compte::solde <= 0)
 			 {
                double res_agios = Compte::solde*(agios/100);
@@ -89,7 +88,7 @@ void CptCourant::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************/ COMPTE COURANT /************** "<<endl;
+        cout<< " **************\\ COMPTE COURANT /************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();

@@ -135,7 +135,7 @@ void CptBloque::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************\   COMPTE BLOQUE   /************** "<<endl;
+        cout<< " **************\\   COMPTE BLOQUE   /************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();

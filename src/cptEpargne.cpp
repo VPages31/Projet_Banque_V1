@@ -50,7 +50,7 @@
 				
 				cout << endl;
 				Ligne();
-				cout << " / / / / / / COMPTE EPARGNE \\ \\ \\ \\ \\ \\ " << endl;
+				cout << " **************\\   COMPTE EPARGNE   /************** " << endl;
 				Ligne();
 				cout << endl << " 1: Consulter le compte" << endl;
 				cout << endl << " 2: Ajouter de l'argent" << endl;
