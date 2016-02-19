@@ -45,12 +45,12 @@
 		CLEAR;
 		while(choix!=0)
 		{
+			
 			do
-			  {
-				
+			{
 				cout << endl;
 				Ligne();
-				cout << " **************\\   COMPTE EPARGNE   /************** " << endl;
+				cout << " *************\\   COMPTE EPARGNE   /************* " << endl;
 				Ligne();
 				cout << endl << " 1: Consulter le compte" << endl;
 				cout << endl << " 2: Ajouter de l'argent" << endl;
@@ -108,7 +108,8 @@
 					break;
 					default:
 						CLEAR;
-						cout << endl<< endl << "Ce choix est incorrect" << endl;
+						cout << endl<< "Ce choix est incorrect" << endl;
+						cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
 						Poubelle();
 						CLEAR;
 				}	
@@ -120,9 +121,7 @@
     {	Ligne();
 		cout << "Compte Epargne n° " << Compte::numCompte << endl;
 		Ligne();
-		cout << "Ouvert le: ";
-		D.AfficherDate();
-		cout << "Solde: " << Compte::solde << " €" << endl;
+		cout << endl << "Solde: " << Compte::solde << " €" << endl;
 		cout << "Taux d'interets :" << interets << " %" << endl;
 		Ligne();
 		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
@@ -131,10 +130,13 @@
     }
 
     void CptEpargne::Ajouter()
-    {	cout << endl << "Saisir le montant : ";
-		double m;
-		cin >> m;
-		
+    {	double m;
+		do
+		{	cout << endl << "Saisir le montant : ";	
+			cin >> m;
+			if(m<=0)
+				cout << endl << "Opération impossible" << endl;
+		} while(m<=0);	// Impossible de déposer 0€ ou -30€
 		if(Compte::solde + m <= plafond)
 		{	Compte::solde += m;
 			Compte::Historique(m);
@@ -150,33 +152,38 @@
     }
 
     void CptEpargne::Retirer()
-	{
-		do
-		{
-			cout << endl << "Saisir le montant : ";
-			double m;
+	{	double m;
+		do  // Controle d'un montant non-nul (-> retrait de 10€ == retrait de -10€)
+		{ 	cout << endl << "Saisir le montant : ";
 			cin >> m;
 			if(m==0)
-			{	cout << 
-		} while( m == 0);	// Impossible de retirer 0€	
+				cout << endl << "Opération impossible" << endl;
+		} while(m == 0);	// Impossible de retirer 0€	
 		
 			if(Compte::solde - m >= 0)
-			{ 	Compte::solde -= (m);
+			{ 	Compte::solde -= m;
 				Compte::Historique((-1)*m);
 				cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
 			}
 			else
 			{ 	cout << endl << "Minimum atteint, operation impossible" << endl;
 			}
-		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl;
 		Poubelle();
 		CLEAR;
 		}
 
     void CptEpargne::AjouterInterets()
     { 	double res = Compte::solde*(interets/100);
+		cout << interets << " % d\'interets appliqués a " << Compte::solde << " €";
 		Compte::solde += res;
+		cout << endl << "|- - > Benefice de " << res << " €";
+		cout << endl << "|- - - -> Nouveau solde : " << Compte::solde << " €";
 		if(res!=0) // si le calcul n'est pas fait sur rien, inutil de rajouter une opération sur un solde de 0€ dans l'historique
 			Compte::Historique(res);
+			
+		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl;
+		Poubelle();
+		CLEAR;
     }
     
