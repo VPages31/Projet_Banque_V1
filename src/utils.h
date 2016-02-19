@@ -5,6 +5,8 @@
 using namespace std;
 #include <cstdlib>
 
+#define DEBUG 1
+
 #ifdef __linux
 #define CLEAR system("clear")
 #else
@@ -13,7 +15,7 @@ using namespace std;
     #endif // WIN32
 #endif // UNIX
 
-#define LIGNE 41
+#define LIGNE 50
 
 //fonction pour tracer une ligne pour les menus (il suffit de changer le define pour changer la taille de toutes les lignes)
 void Ligne(void);

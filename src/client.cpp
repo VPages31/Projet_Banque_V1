@@ -134,6 +134,7 @@ void Client::SupprimerCompte()
 {
     char choix='z';
     int numero=0;
+    unsigned int i;
     do
     {
         Ligne();
@@ -166,7 +167,7 @@ void Client::SupprimerCompte()
             else
             {
                 cout<< " Merci d'indiquer le numero du compte a supprimer: ";
-                for (int i=0; i<listeCC.size(); i++)
+                for (i=0; i<listeCC.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -192,7 +193,7 @@ void Client::SupprimerCompte()
             else
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listeLE.size(); i++)
+                for (i=0; i<listeLE.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -218,7 +219,7 @@ void Client::SupprimerCompte()
             else
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listeCB.size(); i++)
+                for (i=0; i<listeCB.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -244,7 +245,7 @@ void Client::SupprimerCompte()
             else
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listePEL.size(); i++)
+                for (i=0; i<listePEL.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -270,6 +271,7 @@ void Client::GererCompte()
 {
     char choix='z';
     int numero=0;
+    unsigned int i;
     do
     {
         Ligne();
@@ -295,7 +297,7 @@ void Client::GererCompte()
             else if (listeCC.size()>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listeCC.size(); i++)
+                for (i=0; i<listeCC.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -313,7 +315,7 @@ void Client::GererCompte()
             else if (listeLE.size()>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listeLE.size(); i++)
+                for (i=0; i<listeLE.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -331,7 +333,7 @@ void Client::GererCompte()
             else if (listeCB.size()>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listeCB.size(); i++)
+                for (i=0; i<listeCB.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;
@@ -349,7 +351,7 @@ void Client::GererCompte()
             else if (listePEL.size()>1)
             {
                 cout<< " Merci d'indiquer le numero du compte a gerer: ";
-                for (int i=0; i<listePEL.size(); i++)
+                for (i=0; i<listePEL.size(); i++)
                     cout<<i<< " ";
                 cout<<endl;
                 cin>>numero;

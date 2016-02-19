@@ -2,16 +2,11 @@
 
 Compte::Compte(string numCompte, Date d)
 {
-	int i = 0;
 	#ifdef DEBUG
 		cout << "Constructeur compte parametre " << (int)(this)<<endl;
 	#endif
 	this->numCompte = numCompte;
 	solde = 0;
-	for ( i = 0 ; i < 10 ; i ++)
-	{
-		historique[i] = 0;
-	}
 	D = d;
 
 }
@@ -29,17 +24,24 @@ void Compte::Ajouter (double montant) // Ajoute de l'argent au solde (prends en 
 	#ifdef DEBUG
 		cout << "Ajouter au Solde " << (int)(this)<<endl;
 	#endif
+	this->Historique(montant);
 }
 
 void Compte::Consulter() // Permet de consulter le solde et l'historique du compte
 {
 	int i = 0;
+	int taille=(signed)historique.size();
 	cout << "Solde : \t" << solde << endl;
 	cout << "Historique :" << endl;
-	for ( i = 0 ; i < 10 ; i ++)
-	{
-		cout << "\t" << historique[i];
-	}
+	if (taille==0)
+        cout << "\t" << historique[0];
+    else
+    {
+        for ( i = 0 ; i < taille ; i ++)
+        {
+            cout << "\t" << historique[i];
+        }
+    }
 	cout << endl;
 }
 
@@ -54,4 +56,12 @@ void Compte::Retirer ( double montant ) // Retire de l'argent au solde (meme pro
 double Compte::GetSolde ()
 {
 	return (solde);
+}
+
+void Compte::Historique(double s) // ajoute une transaction dans le vector historique
+{
+    #ifdef DEBUG
+		cout << "Ajouter a l'historique " << (int)(this)<<endl;
+	#endif
+    historique.push_back(s);
 }

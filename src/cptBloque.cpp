@@ -94,7 +94,7 @@ CptBloque CptBloque::AjouterInterets()
 }
 
 //************* FONCTIONS SURCHARGE Compte **************
-
+/*
 void CptBloque::Ajouter (double montant) // Ajoute de l'argent au solde
 {
     Compte::solde=Compte::solde+montant;
@@ -112,7 +112,7 @@ void CptBloque::Retirer ( double montant ) // Retire de l'argent au solde
         Compte::solde=Compte::solde-montant;
     else
         cout<< "Votre compte est bloque, vous ne pouvez pas retirer "<<endl;
-}
+}*/
 
 double CptBloque::GetSolde ()
 {
@@ -125,15 +125,16 @@ void CptBloque::Menu()
     char choix;
     do
     {
-        CLEAR;
+        //CLEAR;
         Ligne();
-        cout<< " / / / / / / COMPTE BLOQUE \\ \\ \\ \\ \\ \\ "<<endl;
+        cout<< " **************\   COMPTE BLOQUE   /************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();
         cout<<endl<< " 1: Ajouter de l'argent"<<endl;
         cout<<endl<< " 2: Retirer de l'argent"<<endl;
         cout<<endl<< " 3: Ajouter les interets"<<endl;
+        cout<<endl<< " 4: Consulter l'historique"<<endl;
         cout<<endl<< " 0: Retour"<<endl;
         cin>>choix;
         Poubelle(); //si jamais l'utilisateur entre plus d'1 caractere, on vide le cache
@@ -164,6 +165,12 @@ void CptBloque::Menu()
                 cout << "case 3 " <<endl;
             #endif
             this->AjouterInterets();
+            break;
+        case '4':
+            #ifdef DEBUG
+                cout << "case 4 " <<endl;
+            #endif
+            this->Consulter();
             break;
         case '0':
             #ifdef DEBUG
