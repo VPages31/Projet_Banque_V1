@@ -3,9 +3,10 @@
 
 //fonction membre
 // constructeur
-CptCourant::CptCourant(string num, int A): Compte(num)
+CptCourant::CptCourant(string num ,int d): Compte(num)
 {
-    agios=A;
+    agios=d;
+     #ifdef DEBUG
 		cout << "Constructeur cptCourant parametres " << (int)(this)<<endl;
 	#endif
 }
@@ -41,6 +42,8 @@ void CptCourant::AfficherCompte()
 void CptCourant::Ajouter (double montant) // Ajoute de l'argent au solde
 {
     Compte::solde=Compte::solde+montant;
+    cout<< " Votre montant vient d'etre ajoute\n"<<endl;
+    Poubelle();
     #ifdef DEBUG
 		cout << "Ajouter dans le compte courant  " << (int)(this)<<endl;
 	#endif
@@ -54,15 +57,19 @@ void CptCourant::Retirer ( double montant ) // Retire de l'argent au solde de co
 	#endif
 
         Compte::solde=Compte::solde-montant;
+        cout<< " Votre montant vient d'etre retire \n"<<endl;
+          Poubelle();
 
 }
- void  CptCourant::RetirerAgio()
+ double  CptCourant::RetirerAgio()
     {
 
-        if(Compte::solde < 0)
+        if(Compte::solde <= 0)
 			 {
                double res_agios = Compte::solde*(agios/100);
-		       Compte::solde -= res_agios;
+		       Compte::solde -= (-res_agios);
+		       cout<< " Votre agios vient d'etre retirer \n"<<endl;
+                  Poubelle();
 			 }
 		else
 			cout << endl << "Vous avez encore de l'argent,pas d'agios à retirer" << endl;
@@ -80,13 +87,14 @@ void CptCourant::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************/ COMPTE BLOQUE \************** "<<endl;
+        cout<< " **************/ COMPTE COURANT /************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();
         cout<<endl<< " 1: Ajouter de l'argent"<<endl;
         cout<<endl<< " 2: Retirer de l'argent"<<endl;
         cout<<endl<< " 3: Retirer Agios "<<endl;
+        cout<<endl<< " 4: Consulter l'historique"<<endl;
         cout<<endl<< " 0: Retour"<<endl;
         cin>>choix;
         Poubelle(); //si jamais l'utilisateur entre plus d'1 caractere, on vide le cache
@@ -117,6 +125,12 @@ void CptCourant::Menu()
                 cout << "case 3 " <<endl;
             #endif
             this->RetirerAgio();
+            break;
+            case '4':
+            #ifdef DEBUG
+                cout << "case 4 " <<endl;
+            #endif
+            this->Consulter();
             break;
         case '0':
             #ifdef DEBUG
