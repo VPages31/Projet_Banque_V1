@@ -154,8 +154,8 @@
 		cin >> m;
 		
 		if(Compte::solde - m >= 0)
-		{ 	Compte::solde += ((-1)*m);
-			Compte::Historique(m);
+		{ 	Compte::solde -= (m);
+			Compte::Historique((-1)*m);
 			cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
 		}
 		else
