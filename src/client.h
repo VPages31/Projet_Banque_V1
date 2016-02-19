@@ -30,6 +30,8 @@ class Client
 
 	public:
 	/** Fonctions internes a la classe Client **/
+        Client(int num =00001);
+        ~Client();
 		void Menu();
 		void Afficher();
 		void AjouterCompte();

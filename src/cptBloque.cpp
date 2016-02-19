@@ -13,10 +13,17 @@ CptBloque::CptBloque(string num, Date d, int t, double inter): Compte(num, d)
 //Affectation
 CptBloque &CptBloque::operator= (const CptBloque &c)
 {
+    int i = 0;
+	int taille=(signed)c.historique.size();
     Compte::numCompte=c.Compte::numCompte;
     Compte::solde=c.Compte::solde;
-    for (int i=0; i<10; i++)
-        Compte::historique[i]=c.Compte::historique[i];
+    if (taille==0)
+        historique[0]=c.historique[0];
+    else
+    {
+        for (i=0; i<taille; i++)
+            Compte::historique[i]=c.Compte::historique[i];
+    }
     Compte::D=c.Compte::D;
     blo_duree=c.blo_duree;
     interets=c.interets;
@@ -125,7 +132,7 @@ void CptBloque::Menu()
     char choix;
     do
     {
-        //CLEAR;
+        CLEAR;
         Ligne();
         cout<< " **************\   COMPTE BLOQUE   /************** "<<endl;
         Ligne();

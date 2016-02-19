@@ -1,6 +1,29 @@
 #include "client.h"
 
 //************* FONCTIONS MEMBRES Client **************
+// Constructeur
+Client::Client(int num)
+{
+    #ifdef DEBUG
+		cout << "Constructeur client " << (int)(this)<<endl;
+	#endif
+    nom= "nom";
+    prenom= "prenom";
+    mail= "mail";
+    for (int i=0; i<10; i++)
+        telephone[i]=0;
+    adresse= "adresse par defaut";
+    numClient=num;
+}
+
+// Destructeur
+Client::~Client()
+{
+    #ifdef DEBUG
+		cout << "Destructeur client " << (int)(this)<<endl;
+	#endif
+}
+
 void Client::Menu()
 {
     char choix='z';
@@ -8,7 +31,7 @@ void Client::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " / / / / / / COMPTE CLIENT \\ \\ \\ \\ \\ \\ "<<endl;
+        cout<< " **************\   COMPTE CLIENT   /************** "<<endl;
         Ligne();
         Afficher();
         Ligne();
