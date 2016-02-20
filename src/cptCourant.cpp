@@ -142,8 +142,6 @@ void CptCourant::Menu()
             #endif
             break;
         } //fin switch
-    /*    cout<< "Appuyez sur Entree pour continuer"<<endl;
-        Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran*/
     } //fin do
     while (choix!='0');
 } // fin Menu()
