@@ -1,6 +1,6 @@
 #include "banque.h"
 
-Banque(string nom , string adresse );
+Banque::Banque(string nom , string adresse )
 {
 	#ifdef DEBUG
 		cout << "Constructeur Banque" << endl;
@@ -9,10 +9,10 @@ Banque(string nom , string adresse );
 	this->adresse = adresse;
 }
 
-virtual ~Banque();
+Banque::~Banque()
 {
 	#ifdef DEBUG
-		cout << "Destruteur Banque"
+		cout << "Destruteur Banque" << endl;
 	#endif
 }
 
@@ -34,15 +34,19 @@ void Banque::Menu()
 		switch (choix)
 		{
 			case 1:
+				Afficher();
 				break;
 
 			case 2:
+				ModifierBanque();
 				break;
 
 			case 3:
+				NouveauClient();
 				break;
 
 			case 4:
+				Authentification();
 				break;
 
 			case 0:
@@ -60,9 +64,9 @@ void Banque::Afficher()
 	Ligne();
 	cout << endl << "Banque : " << nomBanque << endl;
 	cout << "Adresse : " << adresse << endl << endl;
-	cout << "Liste client : " << endl
+	cout << "Liste client : " << endl;
 	if (listeC.size() == 0)
-		cout << "Aucuns client dans la banque"
+		cout << "Aucuns client dans la banque" << endl;
 	else
 	{
 		for (int i = 0; i < listeC.size(); i++)
@@ -71,6 +75,9 @@ void Banque::Afficher()
 			cout << listeC[i].numClient << endl;
 		}
 	}
+	cout << endl << endl << " Appuyer sur entree pour continuer ... " << endl;
+	Poubelle();
+	getchar();
 
 
 }
@@ -81,39 +88,105 @@ void Banque::ModifierBanque()
 	Ligne();
 	cout<< " **************\\     BANQUE      /************** "<<endl;
 	Ligne();
+	Poubelle();
 	cout << "Entrez le nom de la banque" << endl;
-	getline(nomBanque);
+	getline(cin, nomBanque);
 	cout << "Entrez l'adresse de la banque" << endl;
-	getline(adresse);
+	getline(cin, adresse);
 
 }
 
 void Banque::Authentification()
 {
 	int num;
+	int i = 0;
 	CLEAR;
 	Ligne();
 	cout<< " **************\\     BANQUE      /************** "<<endl;
 	Ligne();
 	if (listeC.size() == 0)
-		cout << "Aucuns client dans la banque" << endl
-		cout << "Appuyer sur entree pour continuer..." << endl
+	{
+		cout << "Aucuns client dans la banque" << endl;
+		cout << "Appuyer sur entree pour continuer..." << endl;
 		getchar();
+	}
 	else
 	{
-		cout << " Saisir le numero du client " << endl;
-		cin >> num;
-		// a terminer
+		bool identique = true; // sert a vérifier si le numero de compte choisis existe true = numero existant
+		do{
+			cout << " Entrez le numero de client (0 pour quitter)" << endl;
+			cin >> num;
+			if (num == 0)
+				return;
+			else
+			{			
+				do{
+					if (listeC[i].numClient == num)
+						identique = true;
+					i ++;
+				}while(i < listeC.size() || identique == true);
+			}
+		}while (!identique);
+		cout << " Client trouvé " << endl;
+		listeC[i-1].Menu();
+
 	}
 }
 
 void Banque::NouveauClient()
 {
-	
+	int num = 0;
+	int i = 0;
+	bool identique = true; // sert a vérifier si le numero de compte choisis n'est pas deja pris true = numero deja existant
+	CLEAR;
+	Ligne();
+	cout<< " **************\\ NOUVEAU CLIENT /************** "<<endl;
+	Ligne();
+	do{
+		cout << " Entrez le nouveau numero de client (0 pour quitter)" << endl;
+		cin >> num;
+		if (num == 0)
+		{
+			return;
+		}
+		if (listeC.size()==0)
+		{
+			identique = false;
+		}
+		else
+		{			
+			do{
+				if (listeC[i].numClient == num)
+					identique = true;
+				i ++;
+			}while(i < listeC.size() || identique == true);
+		}
+		cout << endl << "Numero de compte deja existant !" << endl;
+	}while (identique);
+	Client c (num);
+	listeC.push_back (c);
+	CLEAR;
+	Ligne();
+	cout<< " **************\\ NOUVEAU CLIENT /************** "<<endl;
+	Ligne();
+	cout << endl << " Entrez le nom client" << endl;
+	cin >> listeC[listeC.size()-1].nom;
+	cout << endl << " Entrez le prenom du client " << endl;
+	cin >> listeC[listeC.size()-1].prenom;
+	Poubelle();
+	cout << endl << " Entrez le mail du client" << endl;
+	getline(cin, listeC[listeC.size()-1].mail);
+	cout << endl << "  Entrez son adresse " << endl;
+	getline(cin, listeC[listeC.size()-1].adresse);
+	cout << endl << " Entrez le numero de telephone ( 0 5 6 5 0 1 0 2 0 3 ) " << endl;
+	for ( int j = 0 ; j < 10 ; j ++ )
+	{
+		cin >> listeC[listeC.size()-1].telephone[i];
+	}
 }
 
 // je ne met pas Banque:: car pourra etre appelé hors de la classe
 void SupprimerCompte()
 {
-	
+	// a coder
 }

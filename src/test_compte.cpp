@@ -10,5 +10,5 @@ main ()
 	C.Retirer(25.65);
 	cout << C.GetSolde() << endl;
 	C.Consulter();
-	* /
+	*/
 }/// /// /// CLASSE ABSTRAITE /// /// ///	==> WARNING 

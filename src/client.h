@@ -14,7 +14,7 @@ extern Date today;
 
 class Client
 {
-	private:
+	public:
 		string nom;
 		string prenom;
 		string mail;

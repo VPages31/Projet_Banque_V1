@@ -1,14 +1,11 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "client.h"
+#include "banque.h"
 
-main ()
+int main()
 {
 	CLEAR;
-	
-		Banque B
-		B.Menu();	// Menu Principal
-	
-	CLEAR;
+	Banque B;
+	B.Menu();
 }
