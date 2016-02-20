@@ -37,7 +37,7 @@ test_utils: utils.o test_utils.o
 	$(Compilo) -o test_utils.cestparti $^
 	
 # Dépendances des tests unitaires
-test_banque.o: test_compte.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o banque.o
+test_banque.o: test_banque.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o banque.o
 	$(Compilo) -c $<
 	
 test_client.o: test_client.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o
