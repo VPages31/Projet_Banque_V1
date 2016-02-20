@@ -11,16 +11,14 @@ class Banque
 	private:
 		string nomBanque;
 		string adresse;
-		vector Client;
+		vector <Client> listeC;
 	protected:
 		
 	
 	public:
 	/** Forme canonique **/
 		// Constructeurs
-		Banque();
-		// pas utile mais bon...    Banque(const Banque & ACopier);
-		Banque(string nom ="nom_defaut_", string adresse = "adresse_defaut_");
+		Banque(string nom ="Caisse LDNR", string adresse = "12 Rue des Banques");
 		// Destructeur
 		 virtual ~Banque();
 		// Operateurs 

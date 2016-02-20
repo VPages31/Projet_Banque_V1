@@ -77,11 +77,12 @@ void CptPEL::Emprunter()
 		cout << " Combien voulez vous emprunter a la banque? " << endl;
 		cin >> montant;
 		Compte::Retirer(montant);
+		Compte::Historique((-1)*montant);
 	}
 	else
 	{
 		cout << "Le compte est toujours bloqué" << endl;
-		cout << " Appuyer sur entrée pour continuer ... " << endl;
+		cout << " Appuyer sur entree pour continuer ... " << endl;
 		Poubelle();
 		getchar();	
 	}	
@@ -109,6 +110,7 @@ void CptPEL::AjouterVersement()
 	Compte::solde += versement;
 	cout << endl << "Versement effectué" << endl << endl;
 	cout << "appuyer sur entrée pour continuer ...";
+	Compte::Historique(versement);
 	Poubelle();
 	getchar(); 
 }
@@ -138,4 +140,5 @@ void CptPEL::Ajouter()
 		cin >> somme;
 		Compte::Ajouter(somme);
 	}while (somme < 0);
+	Compte::Historique(somme);
 }
