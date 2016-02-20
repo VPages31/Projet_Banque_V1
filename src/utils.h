@@ -4,8 +4,8 @@
 #include<string>
 using namespace std;
 #include <cstdlib>
-
-#define DEBUG 1
+//Decommentez pour mode Debug
+//#define DEBUG 1
 
 #ifdef __linux
 #define CLEAR system("clear")

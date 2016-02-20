@@ -1,3 +1,5 @@
+/// VINCENT
+
 #include "cptEpargne.h"
 
     //Constructeur

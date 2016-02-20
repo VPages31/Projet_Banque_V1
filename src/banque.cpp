@@ -197,7 +197,7 @@ void Banque::ModifierToday()
 {
 	CLEAR;
 	Ligne();
-	cout<< " **************\\ Changement Today /************** "<<endl;
+	cout<< " ************\\ Changement Date du jour /************ "<<endl;
 	Ligne();
 	cout << endl << "Nous sommes le :  " << today;
 	cout << endl << endl << " Entrez la date du jour (ex : 01 01 1900) : ";

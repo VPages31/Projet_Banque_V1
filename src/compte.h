@@ -4,6 +4,7 @@
 //#include "today.h"
 #include <iostream>
 #include <vector>
+#include <deque>
 
 extern Date today;
 
@@ -12,8 +13,7 @@ class Compte
 	protected :
 		string numCompte;
 		double solde;
-		vector <double> historique;
-		//double historique[10];
+		deque <double> historique;
 		Date D;
 	public :
 		Compte(string numCompte, Date d= today);
@@ -23,7 +23,7 @@ class Compte
 		void Retirer (double montant); // Retire de l'argent au solde
 		double GetSolde ();
 		virtual void Menu() = 0;
-		void Historique(double s); // ajoute une transaction dans le vector historique
+		void Historique(double s); // ajoute une transaction dans historique
 };
 
 #endif

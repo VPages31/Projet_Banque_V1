@@ -71,10 +71,10 @@ double Compte::GetSolde ()
 	return (solde);
 }
 
-void Compte::Historique(double s) // ajoute une transaction dans le vector historique
+void Compte::Historique(double s) // ajoute une transaction dans historique
 {
     #ifdef DEBUG
 		cout << "Ajouter a l'historique " << (int)(this)<<endl;
 	#endif
-    historique.push_back( (signed) s);
+    historique.push_front( (signed) s);
 }

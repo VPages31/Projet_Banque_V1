@@ -1,3 +1,5 @@
+/// BENOIT
+
 #include "cptBloque.h"
 //************* FONCTIONS MEMBRES CptBloque **************
 //Constructeur
