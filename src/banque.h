@@ -20,11 +20,10 @@ class Banque
 	public:
 	/** Forme canonique **/
 		// Constructeurs
-		Banque(string nom ="Caisse LDNR", string adresse = "12 Rue des Banques");
+		Banque(string nom ="NomCommunique", string adresse = "adresse indefinie");
 		// Destructeur
 		 virtual ~Banque();
 		// Operateurs 
-		/// Je ne sais pas si c'est utile... a définir
 		friend istream & operator>>(istream & out, Banque & D);
 		friend ostream & operator<<(ostream & in, Banque  & D);
 	
@@ -33,6 +32,7 @@ class Banque
 	void Menu();
 	void Afficher();
 	void ModifierBanque();
+	void ModifierBanque(string nom, string adr);
 	void Authentification();
 	void NouveauClient();
 	void SupprimerCompte();

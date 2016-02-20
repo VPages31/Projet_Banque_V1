@@ -100,6 +100,12 @@ void Banque::ModifierBanque()
 
 }
 
+void Banque::ModifierBanque(string nom, string adr)
+{ 	nomBanque=nom;
+	adresse=adr;
+}
+
+
 void Banque::Authentification()
 {
 	int num;

@@ -1,11 +1,10 @@
 #Compilateur utilisé
 Compilo=g++
 SRC=$(wildcard *.c)
-CFLAGS=-Wall
 
 # Cible principale
 ProjetBanque.cestparti: utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
-	$(Compilo) $(CFLAGS) -o $@ utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
+	$(Compilo) -o $@ utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
 
 
 # Test unitiaires
@@ -66,34 +65,34 @@ test_utils.o: test_utils.cpp utils.o
 	
 # Dépendances
 utils.o: utils.cpp utils.h
-	$(Compilo) $(CFLAGS) -c utils.cpp
+	$(Compilo) -c utils.cpp
 
 date.o: date.cpp date.h utils.o
-	$(Compilo) $(CFLAGS) -c date.cpp
+	$(Compilo) -c date.cpp
 
 cptCourant.o: cptCourant.cpp cptCourant.h compte.o
-	$(Compilo) $(CFLAGS) -c cptCourant.cpp
+	$(Compilo) -c cptCourant.cpp
 
 cptEpargne.o: cptEpargne.cpp cptEpargne.h compte.o
-	$(Compilo) $(CFLAGS) -c cptEpargne.cpp
+	$(Compilo) -c cptEpargne.cpp
 
 cptBloque.o: cptBloque.cpp cptBloque.h compte.o
-	$(Compilo) $(CFLAGS) -c cptBloque.cpp
+	$(Compilo) -c cptBloque.cpp
 
 cptPEL.o: cptPEL.cpp cptPEL.h compte.o
-	$(Compilo) $(CFLAGS) -c cptPEL.cpp
+	$(Compilo) -c cptPEL.cpp
 
 compte.o: compte.cpp compte.h date.o utils.o
-	$(Compilo) $(CFLAGS) -c compte.cpp
+	$(Compilo) -c compte.cpp
 
 client.o: client.cpp client.h compte.o
-	$(Compilo) $(CFLAGS) -c client.cpp
+	$(Compilo) -c client.cpp
 
 banque.o: banque.cpp banque.h client.o
-	$(Compilo) $(CFLAGS) -c banque.cpp
+	$(Compilo) -c banque.cpp
 
 main.o: main.cpp banque.o
-	$(Compilo) $(CFLAGS) -c	main.cpp
+	$(Compilo) -c	main.cpp
 
 # Cibles fictives
 MrProper:
