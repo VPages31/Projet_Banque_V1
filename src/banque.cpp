@@ -108,6 +108,7 @@ void Banque::Authentification()
 	{
 		cout << "Aucuns client dans la banque" << endl;
 		cout << "Appuyer sur entree pour continuer..." << endl;
+		Poubelle();
 		getchar();
 	}
 	else
@@ -119,12 +120,18 @@ void Banque::Authentification()
 			if (num == 0)
 				return;
 			else
-			{			
+			{	cout << "else ";		
 				do{
+					cout << "boucle client " << i << endl;
 					if (listeC[i].numClient == num)
+					{
 						identique = true;
+						cout << identique;
+						Poubelle();
+						getchar();
+					}
 					i ++;
-				}while(i < listeC.size() || identique == true);
+				}while(i < (int)listeC.size() && identique == true);
 			}
 		}while (!identique);
 		cout << " Client trouvé " << endl;
