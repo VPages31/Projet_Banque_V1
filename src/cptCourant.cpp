@@ -70,7 +70,6 @@ void CptCourant::RetirerAgio()
                double res_agios = Compte::solde*(agios/100);
 		       Compte::solde -= (-res_agios);
 		       cout<< " Votre agios vient d'etre retirer \n"<<endl;
-                  Poubelle();
 			 }
 		else
 			cout << endl << "Vous avez encore de l'argent,pas d'agios à retirer" << endl;

@@ -21,7 +21,7 @@ CptPEL::~CptPEL()
 
 void CptPEL::Menu()
 {
-	int choix = 0;
+	char choix;
 	do
 	{
 		CLEAR;
@@ -33,37 +33,38 @@ void CptPEL::Menu()
 		cout << "3 - Ajouter le versement" << endl;
 		cout << "4 - Ajouter de l'argent" << endl;
 		cout << "5 - Faire l'emprunt" << endl;
-		cout << "6 - Retour" << endl << endl;
+		cout << "0 - Retour" << endl << endl;
 		cin >> choix;
 		switch (choix)
 		{
-			case 1 :
+			case '1' :
 				Consulter();
 				break;
 	
-			case 2 :
+			case '2' :
 				ModifierVersement();
 				break;
 	
-			case 3 :
+			case '3' :
 				AjouterVersement();
 				break;
 	
-			case 4 :
+			case '4' :
 				Ajouter();
 				break;
 	
-			case 5 :
+			case '5' :
 				Emprunter();
 				break;
+
 	
-			case 6 :
+			case '0' :
 			break;
 	
 			default :
 			break;
 		}
-	}while (choix != 6);
+	}while (choix != '0');
 }
 void CptPEL::Emprunter()
 {
@@ -122,10 +123,8 @@ void CptPEL::Consulter()
 	cout << endl << "\tMenu PEL" << endl << endl;
 	Ligne();
 	cout << endl << "Date de Débloquage : " << dateDebloquage << endl;
-	Compte::Consulter();
-	cout << endl << "appuyer sur entree pour continuer ...";
 	Poubelle();
-	getchar();
+	Compte::Consulter();
 }
 
 void CptPEL::Ajouter()

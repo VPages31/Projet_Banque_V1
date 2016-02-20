@@ -18,9 +18,8 @@ Banque::~Banque()
 
 void Banque::Menu()
 {
-	int choix;
+	char choix;
 	do {
-		choix = 10;
 		CLEAR;
 		Ligne();
 		cout<< " **************\\     BANQUE      /************** "<<endl;
@@ -29,30 +28,35 @@ void Banque::Menu()
 		cout << " 2 - Modifier la Banque" << endl;
 		cout << " 3 - Nouveau Client" << endl;
 		cout << " 4 - Acces Client" << endl;
-		cout << endl << " 0 - Sortir" << endl;
+		cout << " 5 - Modifier date du jour" << endl;
+		cout << " 0 - Sortir" << endl;
 		cin >>choix;
 		switch (choix)
 		{
-			case 1:
+			case '1':
 				Afficher();
 				break;
 
-			case 2:
+			case '2':
 				ModifierBanque();
 				break;
 
-			case 3:
+			case '3':
 				NouveauClient();
 				break;
 
-			case 4:
+			case '4':
 				Authentification();
 				break;
 
-			case 0:
+			case '5':
+				ModifierToday();
+				break;
+
+			case '0':
 				break;
 		}
-	}while(choix != 0);
+	}while(choix != '0');
 
 }
 
@@ -147,6 +151,7 @@ void Banque::NouveauClient()
 	cout<< " **************\\ NOUVEAU CLIENT /************** "<<endl;
 	Ligne();
 	do{
+		identique == true;
 		cout << " Entrez le nouveau numero de client (0 pour quitter)" << endl;
 		cin >> num;
 		if (num == 0)
@@ -160,13 +165,15 @@ void Banque::NouveauClient()
 		else
 		{			
 			do{
-				if (listeC[i].numClient == num)
-					identique = true;
+				if (listeC[i].numClient != num)
+				{
+					identique = false;
+				}
 				i ++;
-			}while(i < listeC.size() || identique == true);
+			}while(i < listeC.size() && identique == true);
 		}
 		cout << endl << "Numero de compte deja existant !" << endl;
-	}while (identique);
+	}while (identique == true);
 	Client c (num);
 	listeC.push_back (c);
 	CLEAR;
@@ -186,8 +193,17 @@ void Banque::NouveauClient()
 	getline(cin, listeC[listeC.size()-1].telephone);
 }
 
-// je ne met pas Banque:: car pourra etre appelé hors de la classe
-void SupprimerCompte()
+void Banque::ModifierToday()
 {
-	// a coder
+	CLEAR;
+	Ligne();
+	cout<< " **************\\ Changement Today /************** "<<endl;
+	Ligne();
+	cout << endl << "Nous sommes le :  " << today;
+	cout << endl << endl << " Entrez la date du jour (ex : 01 01 1900) : ";
+	today.ModifierDate();
+	cout << endl << " La nouvelle date est : " << today << endl << endl;
+	cout << "Appuyer sur entrée pour continuer ... " << endl;
+	Poubelle();
+	getchar();
 }

@@ -6,6 +6,8 @@ using namespace std;
 #ifndef BANQUE_H
 #define BANQUE_H
 
+extern Date today;
+
 class Banque
 {
 	private:
@@ -34,6 +36,7 @@ class Banque
 	void Authentification();
 	void NouveauClient();
 	void SupprimerCompte();
+	void ModifierToday();
 };
 
 #endif	// BANQUE_H
