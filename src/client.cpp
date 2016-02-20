@@ -10,8 +10,7 @@ Client::Client(int num)
     nom= "nom";
     prenom= "prenom";
     mail= "mail";
-    for (int i=0; i<10; i++)
-        telephone[i]=0;
+    telephone = "0000000000";
     adresse= "adresse par defaut";
     numClient=num;
 }
@@ -78,8 +77,7 @@ void Client::Menu()
 void Client::Afficher()
 {
     cout<<nom<<" "<<prenom<<endl<<mail<<endl;
-    for (int i=0; i<10; i++)
-        cout<<telephone[i];
+    cout<<telephone;
     cout<<endl<<adresse<<endl<<"numero client: "<<numClient<<endl;
 }
 
@@ -90,6 +88,7 @@ void Client::AjouterCompte()
     int taille=0;
     do
     {
+	CLEAR;
         Ligne();
         cout<<endl<< " Type de compte a ajouter:"<<endl;
         cout<<endl<< " 1: Compte Courant"<<endl;
@@ -342,6 +341,7 @@ void Client::GererCompte()
     int i;
     do
     {
+	CLEAR;
         Ligne();
         cout<<endl<< " Type de compte a gerer:"<<endl;
         cout<<endl<< " 1: Compte Courant"<<endl;

@@ -18,7 +18,7 @@ class Client
 		string nom;
 		string prenom;
 		string mail;
-		int telephone[10];
+		string telephone;
 		string adresse;
 		int numClient;
 		vector <CptCourant> listeCC;

@@ -66,7 +66,7 @@ void Banque::Afficher()
 	cout << "Adresse : " << adresse << endl << endl;
 	cout << "Liste client : " << endl;
 	if (listeC.size() == 0)
-		cout << "Aucuns client dans la banque" << endl;
+		cout << "Aucun client dans la banque" << endl;
 	else
 	{
 		for (int i = 0; i < listeC.size(); i++)
@@ -106,34 +106,31 @@ void Banque::Authentification()
 	Ligne();
 	if (listeC.size() == 0)
 	{
-		cout << "Aucuns client dans la banque" << endl;
+		cout << "Aucun client dans la banque" << endl;
 		cout << "Appuyer sur entree pour continuer..." << endl;
 		Poubelle();
 		getchar();
 	}
 	else
 	{
-		bool identique = true; // sert a vérifier si le numero de compte choisis existe true = numero existant
+		bool identique = false; // sert a vérifier si le numero de compte choisis existe true = numero existant
 		do{
+			i = 0;
 			cout << " Entrez le numero de client (0 pour quitter)" << endl;
 			cin >> num;
 			if (num == 0)
 				return;
 			else
-			{	cout << "else ";		
+			{	
 				do{
-					cout << "boucle client " << i << endl;
 					if (listeC[i].numClient == num)
 					{
 						identique = true;
-						cout << identique;
-						Poubelle();
-						getchar();
 					}
 					i ++;
-				}while(i < (int)listeC.size() && identique == true);
+				}while(i < (int)listeC.size() && identique == false);
 			}
-		}while (!identique);
+		}while (identique == false);
 		cout << " Client trouvé " << endl;
 		listeC[i-1].Menu();
 
@@ -185,11 +182,8 @@ void Banque::NouveauClient()
 	getline(cin, listeC[listeC.size()-1].mail);
 	cout << endl << "  Entrez son adresse " << endl;
 	getline(cin, listeC[listeC.size()-1].adresse);
-	cout << endl << " Entrez le numero de telephone ( 0 5 6 5 0 1 0 2 0 3 ) " << endl;
-	for ( int j = 0 ; j < 10 ; j ++ )
-	{
-		cin >> listeC[listeC.size()-1].telephone[i];
-	}
+	cout << endl << " Entrez le numero de telephone" << endl;
+	getline(cin, listeC[listeC.size()-1].telephone);
 }
 
 // je ne met pas Banque:: car pourra etre appelé hors de la classe
