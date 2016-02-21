@@ -1,0 +1,9 @@
+DERNIERS BUGS A REGLER
+
+dans cptPEL.cpp 
+
+	quand on emprunte 100.000€ par exemple, apres avoir mis a une date ou on peu le faire, l'historique calcul -100.000€ au lieu de rajouter +100.000€
+	
+dans cptBloque
+	
+	Il est directement possible de retirer, mettre en place le blocage avant date
