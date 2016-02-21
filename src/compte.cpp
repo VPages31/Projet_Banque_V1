@@ -8,7 +8,6 @@ Compte::Compte(string numCompte, Date d)
 	this->numCompte = numCompte;
 	solde = 0;
 	D = d;
-
 }
 
 Compte::~Compte()

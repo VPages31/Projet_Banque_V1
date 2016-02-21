@@ -141,16 +141,17 @@ void CptCourant::Menu()
             this->Consulter();
             break;
         case '0':
+			CLEAR;
             #ifdef DEBUG
                 cout << "case 0 " <<endl;
             #endif
             break;
 		default:
-		CLEAR;
-			cout << endl<< "Ce choix est incorrect" << endl;
-			cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
-			Poubelle();
-		CLEAR;
+			CLEAR;
+				cout << endl<< "Ce choix est incorrect" << endl;
+				cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+				Poubelle();
+			CLEAR;
         } //fin switch
     } //fin do
     while (choix!='0');

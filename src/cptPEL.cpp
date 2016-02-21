@@ -72,6 +72,7 @@ void CptPEL::Menu()
 }
 void CptPEL::Emprunter()
 {
+	CLEAR;
 	double montant = 0;
 	Ligne();
 	cout << endl << "\tMenu PEL" << endl << endl;

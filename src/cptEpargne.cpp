@@ -104,7 +104,7 @@
 						#ifdef DEBUG
 							cout << "case 0 - Retour" <<endl;
 						#endif						
-						return;
+						
 					break;
 					default:
 						CLEAR;

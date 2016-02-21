@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
 		getline(cin, b);
 		cout << "Adresse : " << endl;
 		getline(cin, a);
-	
 	B.ModifierBanque(b,a);
-		
 	CLEAR;
+	
 		B.Menu();
+	
 	CLEAR;
 	
 	return 0;
