@@ -3,6 +3,8 @@ DERNIERS BUGS A REGLER
 dans cptPEL.cpp 
 
 	quand on emprunte 100.000€ par exemple, apres avoir mis a une date ou on peu le faire, l'historique calcul -100.000€ au lieu de rajouter +100.000€
+	Visiblement, il y a double enregistrement dans l'historique apres emprunt
+		PEUT ETRE UN SOUCIS AVEC LE PASSAGE DE VECTOR A DEQUE POUR LE TRAITEMENT DE L'HISTORIQUE
 	
 dans cptBloque
 	
