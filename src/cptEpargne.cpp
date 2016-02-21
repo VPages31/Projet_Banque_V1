@@ -9,9 +9,7 @@
         #ifdef DEBUG
             cout << "Constructeur par parametres cptEpargne" << endl;
         #endif // DEBUG
-    }
-    
-    
+    }   
     //Affectation
 	CptEpargne &CptEpargne::operator= (const CptEpargne &c)
 	{ 	Compte::numCompte=c.Compte::numCompte;
@@ -104,7 +102,7 @@
 					break;
 					case 0:
 						#ifdef DEBUG
-							cout << "case 0 - Sortie" <<endl;
+							cout << "case 0 - Retour" <<endl;
 						#endif						
 						return;
 					break;
@@ -155,12 +153,12 @@
 
     void CptEpargne::Retirer()
 	{	double m;
-		do  // Controle d'un montant non-nul (-> retrait de 10€ == retrait de -10€)
+		do  // Controle d'un Montant non-nul (-> Retrait De 10€ Ou -10€ OK)
 		{ 	cout << endl << "Saisir le montant : ";
 			cin >> m;
 			if(m==0)
 				cout << endl << "Opération impossible" << endl;
-		} while(m == 0);	// Impossible de retirer 0€	
+		} while(m == 0);	// Impossible De Retirer 0€	
 		
 			if(Compte::solde - m >= 0)
 			{ 	Compte::solde -= m;

@@ -29,7 +29,7 @@ void Banque::Menu()
 		cout << " 3 - Nouveau Client" << endl;
 		cout << " 4 - Acces Client" << endl;
 		cout << " 5 - Modifier date du jour" << endl;
-		cout << " 0 - Sortir" << endl;
+		cout << " 0 - Quitter" << endl;
 		cin >>choix;
 		switch (choix)
 		{

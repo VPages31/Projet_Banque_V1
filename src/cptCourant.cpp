@@ -91,7 +91,7 @@ void CptCourant::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************\\ COMPTE COURANT /************** "<<endl;
+        cout<< " **************\\ COMPTE COURANT /*************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();
@@ -109,14 +109,16 @@ void CptCourant::Menu()
         switch(choix)
         {
         case '1':
+            CLEAR;
             #ifdef DEBUG
                 cout << "case 1 " <<endl;
-            #endif
+            #endif            
             cout<< " Montant a ajouter: ";
             cin>> montant;
             this->Ajouter(montant);
             break;
         case '2':
+			CLEAR;
             #ifdef DEBUG
                 cout << "case 2 " <<endl;
             #endif
@@ -125,12 +127,14 @@ void CptCourant::Menu()
             this->Retirer(montant);
             break;
         case '3':
+			CLEAR;
             #ifdef DEBUG
                 cout << "case 3 " <<endl;
             #endif
             this->RetirerAgio();
             break;
             case '4':
+            CLEAR;
             #ifdef DEBUG
                 cout << "case 4 " <<endl;
             #endif
@@ -141,6 +145,12 @@ void CptCourant::Menu()
                 cout << "case 0 " <<endl;
             #endif
             break;
+		default:
+		CLEAR;
+			cout << endl<< "Ce choix est incorrect" << endl;
+			cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+			Poubelle();
+		CLEAR;
         } //fin switch
     } //fin do
     while (choix!='0');

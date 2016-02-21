@@ -137,7 +137,7 @@ void CptBloque::Menu()
     {
         CLEAR;
         Ligne();
-        cout<< " **************\\   COMPTE BLOQUE   /************** "<<endl;
+        cout<< " *************\\   COMPTE BLOQUE   /************** "<<endl;
         Ligne();
         AfficherCompte();
         Ligne();
@@ -155,6 +155,7 @@ void CptBloque::Menu()
         switch(choix)
         {
         case '1':
+        CLEAR;
             #ifdef DEBUG
                 cout << "case 1 " <<endl;
             #endif
@@ -165,6 +166,7 @@ void CptBloque::Menu()
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '2':
+        CLEAR;
             #ifdef DEBUG
                 cout << "case 2 " <<endl;
             #endif
@@ -175,6 +177,7 @@ void CptBloque::Menu()
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '3':
+        CLEAR;
             #ifdef DEBUG
                 cout << "case 3 " <<endl;
             #endif
@@ -183,6 +186,7 @@ void CptBloque::Menu()
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
             break;
         case '4':
+        CLEAR;
             #ifdef DEBUG
                 cout << "case 4 " <<endl;
             #endif
@@ -195,6 +199,12 @@ void CptBloque::Menu()
                 cout << "case 0 " <<endl;
             #endif
             break;
+		default:
+		CLEAR;
+			cout << endl<< "Ce choix est incorrect" << endl;
+			cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+			Poubelle();
+		CLEAR;
         } //fin switch
     } //fin do
     while (choix!='0');

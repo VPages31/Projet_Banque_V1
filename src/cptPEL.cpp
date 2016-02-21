@@ -58,20 +58,21 @@ void CptPEL::Menu()
 			case '5' :
 				Emprunter();
 				break;
-
-	
 			case '0' :
 			break;
 	
-			default :
-			break;
+			default:
+			CLEAR;
+				cout << endl<< "Ce choix est incorrect" << endl;
+				cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+				Poubelle();
+			CLEAR;
 		}
 	}while (choix != '0');
 }
 void CptPEL::Emprunter()
 {
 	double montant = 0;
-	CLEAR;
 	Ligne();
 	cout << endl << "\tMenu PEL" << endl << endl;
 	Ligne();

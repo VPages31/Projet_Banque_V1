@@ -96,9 +96,9 @@ main.o: main.cpp banque.o
 
 # Cibles fictives
 MrProper:
-	echo "Suppression des *.o"
-	rm -rf *.o
+	@echo "Suppression des *.o"
+	@rm -rf *.o
 
 ResetAll:
-	echo "R.A.Z"
-	rm -rf *.o *.cestparti
+	@echo "R.A.Z"
+	@rm -rf *.o *.cestparti

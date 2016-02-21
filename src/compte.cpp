@@ -38,13 +38,13 @@ void Compte::Consulter() // Permet de consulter le solde et l'historique du comp
     else if (taille==1)
     { 	cout << (i+1) << " ->\t";
         if(historique[0] > 0)
-			cout << "+"<< historique[0] << " €" << endl; // Valeur positive
+			cout << "+"<< historique[0] << " €" << endl; // Valeur Positive
 		else
-			cout << historique[0] << " €" << endl; // Valeur negative ou zero 
+			cout << historique[0] << " €" << endl; // Valeur Negative Ou Zero 
 	}
     else
     {
-        for ( i = 0 ; i < taille ; i ++)
+        for ( i = 0 ; i < 10 ; i ++)		// On Affiche Juste Les 10 Dernieres opérations
         { 	cout << (i+1) << " ->\t";
 			if(historique[i] > 0)
 				cout << "+"<< historique[i] << " €" << endl; 
@@ -57,7 +57,7 @@ void Compte::Consulter() // Permet de consulter le solde et l'historique du comp
 	CLEAR;
 }
 
-void Compte::Retirer ( double montant ) // Retire de l'argent au solde (meme probleme que ajouter
+void Compte::Retirer ( double montant ) 
 {
 	solde = solde - montant;
 	#ifdef DEBUG

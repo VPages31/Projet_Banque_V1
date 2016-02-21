@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 		getline(cin, a);
 	
 	B.ModifierBanque(b,a);
-	
+		
 	CLEAR;
 		B.Menu();
 	CLEAR;
