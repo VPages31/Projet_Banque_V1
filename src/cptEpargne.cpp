@@ -122,7 +122,7 @@
     {	CLEAR;
 		double m;
 		do
-		{	cout << endl << "Saisir le montant : ";	
+		{	cout << endl << "Saisir le montant a ajouter: ";	
 			cin >> m;
 			if(m<=0)
 				cout << endl << "Opération impossible" << endl;
@@ -145,7 +145,7 @@
 	{	CLEAR;
 		double m;
 		do  // Controle d'un Montant non-nul (-> Retrait De 10€ Ou -10€ OK)
-		{ 	cout << endl << "Saisir le montant : ";
+		{ 	cout << endl << "Saisir le montant a retirer: ";
 			cin >> m;
 			if(m==0)
 				cout << endl << "Opération impossible" << endl;

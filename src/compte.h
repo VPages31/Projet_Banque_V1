@@ -1,9 +1,7 @@
 #ifndef COMPTE_H
 #define COMPTE_H
 #include "date.h"
-//#include "today.h"
 #include <iostream>
-#include <vector>
 #include <deque>
 
 extern Date today;
