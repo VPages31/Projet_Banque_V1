@@ -206,7 +206,6 @@ void Banque::ModifierToday()
 	cout<< " ************\\ Changement Date du jour /************ "<<endl;
 	Ligne();
 	cout << endl << "Nous sommes le :  " << today;
-	cout << endl << endl << " Entrez la date du jour (ex : 01 01 1900) : ";
 	today.ModifierDate();
 	cout << endl << " La nouvelle date est : " << today << endl << endl;
 	cout << "Appuyer sur entrée pour continuer ... " << endl;

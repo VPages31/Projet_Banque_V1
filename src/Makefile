@@ -52,9 +52,9 @@ cptBloque.o: cptBloque.cpp cptBloque.h compte.o
 
 cptPEL.o: cptPEL.cpp cptPEL.h compte.o
 	$(Compilo) -c cptPEL.cpp
-
-compte.o: compte.cpp compte.h date.o utils.o
-	$(Compilo) -c compte.cpp
+#	CLASSE ABSTRAITE NE PEUT ETRE INSTANCIEE --> devirtualiser Menu()=0; pour tester
+#compte.o: compte.cpp compte.h date.o utils.o
+#	$(Compilo) -c compte.cpp
 
 client.o: client.cpp client.h compte.o
 	$(Compilo) -c client.cpp

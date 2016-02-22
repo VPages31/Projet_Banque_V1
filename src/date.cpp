@@ -67,7 +67,10 @@ void Date::ModifierDate()
 	#ifdef DEBUG
 	cout << "Modification de Date " << (int)(this) <<endl;
 	#endif
-	cin >> jour >> mois >> an;
+	do{
+		cout << endl << endl << " Entrez la date du jour (ex : 01 01 1900) : ";
+		cin >> jour >> mois >> an;
+	}while (jour > 31 || jour < 1 || mois < 1 || mois > 12);
 }
 
 void Date::AfficherDate()

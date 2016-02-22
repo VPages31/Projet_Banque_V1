@@ -1,6 +1,4 @@
 #include "compte.h"
-#include <iomanip>
-
 
 Compte::Compte(string numCompte, Date d)
 {
@@ -19,7 +17,7 @@ Compte::~Compte()
 	#endif
 }
 
-void Compte::Ajouter (double montant) // Ajoute de l'argent au solde 
+void Compte::Ajouter (double montant) // Ajoute de l'argent au solde (prends en parametre le montant a retirer ou le demande dans la fonction?
 {
 	solde=solde+montant;
 	#ifdef DEBUG
@@ -32,25 +30,25 @@ void Compte::Consulter() // Permet de consulter le solde et l'historique du comp
 { 	CLEAR;
 	int i = 0;
 	int taille=(signed)historique.size();
-	cout << endl << "Solde actuel : \t"  << setprecision(2) << solde << " €" << endl;
+	cout << endl << "Solde actuel : \t" << solde << " €" << endl;
 	cout << endl << "Historique :" << endl << endl;
 	if (taille==0)
 		cout << "Aucune operation effectuee"<<endl;
     else if (taille==1)
     { 	cout << (i+1) << " ->\t";
         if(historique[0] > 0)
-			cout << "+" << setprecision(2) << historique[0] << " €" << endl; // Valeur Positive
+			cout << "+"<< historique[0] << " €" << endl; // Valeur Positive
 		else
-			cout << setprecision(2) << historique[0] << " €" << endl; // Valeur Negative Ou Zero 
+			cout << historique[0] << " €" << endl; // Valeur Negative Ou Zero 
 	}
     else
     {
         for ( i = 0 ; i < 10 ; i ++)		// On Affiche Juste Les 10 Dernieres opérations
         { 	cout << (i+1) << " ->\t";
 			if(historique[i] > 0)
-				cout << "+" << setprecision(2) << historique[i] << " €" << endl; 
+				cout << "+"<< historique[i] << " €" << endl; 
 			else
-				cout << setprecision(2)  << historique[i] << " €" << endl;
+				cout << historique[i] << " €" << endl;
         }
     }
 	cout << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;

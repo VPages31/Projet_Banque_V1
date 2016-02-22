@@ -97,6 +97,7 @@ void CptBloque::CalculerDateDeblocage()
 CptBloque CptBloque::AjouterInterets()
 {
     this->Compte::solde=this->Compte::solde+((this->Compte::solde*this->interets)/100);
+	Compte::Historique((this->Compte::solde*this->interets)/100);
     #ifdef DEBUG
 		cout<<(int)(this)<< " AjouterInterets: " <<interets<< "% nouveau solde: " <<this->Compte::solde<<endl;
 	#endif
@@ -111,18 +112,32 @@ void CptBloque::Ajouter (double montant) // Ajoute de l'argent au solde
     #ifdef DEBUG
 		cout << "Ajouter " << (int)(this)<<endl;
 	#endif
-}
+}*/
 
 void CptBloque::Retirer ( double montant ) // Retire de l'argent au solde
 {
     #ifdef DEBUG
 		cout << "Retirer " << (int)(this)<<endl;
 	#endif
-    if (blo_duree==0)
+// Benoit
+/*    if (blo_duree==0)
         Compte::solde=Compte::solde-montant;
     else
         cout<< "Votre compte est bloque, vous ne pouvez pas retirer "<<endl;
-}*/
+*/
+
+// Romain
+	if (blo_date_debl < today)
+	{
+		Compte::solde=Compte::solde-montant;
+		Compte::Historique((-1)*montant);
+	}
+	else
+	{
+		cout << "Le compte est toujours bloqué" << endl;
+		Poubelle();	
+	}
+}
 
 double CptBloque::GetSolde ()
 {
