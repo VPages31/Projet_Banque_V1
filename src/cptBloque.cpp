@@ -98,7 +98,7 @@ CptBloque CptBloque::AjouterInterets()
 {
     this->Compte::solde=this->Compte::solde+((this->Compte::solde*this->interets)/100);
     #ifdef DEBUG
-		cout<<(int)(this)<< " AjouterInterets: " <<interets<< "% nouveau solde: " <<this->Compte::solde<<endl;
+		cout<<(int)(this)<< " AjouterInterets: "<< interets<< "% nouveau solde: " <<this->Compte::solde<<endl;
 	#endif
     return (*this);
 }
@@ -122,8 +122,8 @@ void CptBloque::Retirer ( double montant ) // Retire de l'argent au solde
         Compte::solde=Compte::solde-montant;
     else
         cout<< "Votre compte est bloque, vous ne pouvez pas retirer "<<endl;
-}*/
-
+}
+*/
 double CptBloque::GetSolde ()
 {
     return Compte::solde;
