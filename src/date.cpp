@@ -13,7 +13,9 @@ Date::Date(int j, int m, int a)
 
 bool Date::operator<(const Date & D)
 {
-	cout << "entrée fonction <" << endl;
+	#ifdef DEBUG
+		cout << "entrée fonction <" << endl;
+	#endif
 	if (this->an < D.an)
 	{
 		return true;

@@ -41,84 +41,73 @@
 
 	void CptEpargne::Menu()
 	{
-		int choix;
+	int choix;
+		
+	do
+	{
 		CLEAR;
-		while(choix!=0)
-		{
-			
-			do
-			{
-				cout << endl;
-				Ligne();
-				cout << " *************\\   COMPTE EPARGNE   /************* " << endl;
-				Ligne();
-				cout << endl << " 1: Consulter le compte" << endl;
-				cout << endl << " 2: Ajouter de l'argent" << endl;
-				cout << endl << " 3: Retirer de l'argent" << endl;
-				cout << endl << " 4: Ajouter les interets" << endl;
-				cout << endl << " 5: Afficher l\'historique" << endl;
-				cout << endl << " 0: Retour" << endl;
-				cin >> choix;
-				Poubelle();
-				
+		cout << endl;
+		Ligne();
+		cout << " *************\\   COMPTE EPARGNE   /************* " << endl;
+		Ligne();
+		cout << endl << " 1: Consulter le compte" << endl;
+		cout << endl << " 2: Ajouter de l'argent" << endl;
+		cout << endl << " 3: Retirer de l'argent" << endl;
+		cout << endl << " 4: Ajouter les interets" << endl;
+		cout << endl << " 5: Afficher l\'historique" << endl;
+		cout << endl << " 0: Retour" << endl;
+		cin >> choix;
+		Poubelle();
+		
+		#ifdef DEBUG
+			cout << "votre choix: "<< choix << endl;
+		#endif
+		switch(choix)
+		{	case 1:
 				#ifdef DEBUG
-					cout << "votre choix: "<< choix << endl;
+					cout << "case 1 - Consulter" << endl;
 				#endif
-				switch(choix)
-				{	case 1:
-						#ifdef DEBUG
-							cout << "case 1 - Consulter" << endl;
-						#endif
-						CLEAR;
-					Consulter();
-					break;
-					case 2:
-						#ifdef DEBUG
-							cout << "case 2 - Ajout" <<endl;
-						#endif
-						CLEAR;
-					Ajouter();
-					break;
-					case 3:
-						#ifdef DEBUG
-							cout << "case 3 - Retrait" <<endl;
-						#endif
-						CLEAR;
-					Retirer();
-					break;
-					case 4:
-						#ifdef DEBUG
-							cout << "case 4 - Interets" <<endl;
-						#endif
-						CLEAR;
-					AjouterInterets();
-					break;
-					case 5:
-						#ifdef DEBUG
-							cout << "case 5 - Historique" <<endl;
-						#endif
-						CLEAR;
-					Compte::Consulter();
-					break;
-					case 0:
-						#ifdef DEBUG
-							cout << "case 0 - Retour" <<endl;
-						#endif						
-						
-					break;
-					default:
-						CLEAR;
-						cout << endl<< "Ce choix est incorrect" << endl;
-						cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
-						Poubelle();
-						CLEAR;
-				}	
-			} while(choix < 1 || choix > 5);
-		} // 
-	}///
+			this->Consulter();
+			break;
+			case 2:
+				#ifdef DEBUG
+					cout << "case 2 - Ajout" <<endl;
+				#endif
+			this->Ajouter();
+			break;
+			case 3:
+				#ifdef DEBUG
+					cout << "case 3 - Retrait" <<endl;
+				#endif
+			this->Retirer();
+			break;
+			case 4:
+				#ifdef DEBUG
+					cout << "case 4 - Interets" <<endl;
+				#endif
+			this->AjouterInterets();
+			break;
+			case 5:
+				#ifdef DEBUG
+					cout << "case 5 - Historique" <<endl;
+				#endif
+			this->Compte::Consulter();
+			break;
+			case 0:	
+			break;
+			default:
+				CLEAR;
+				cout << endl<< "Ce choix est incorrect" << endl;
+				cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl << endl;
+				Poubelle();
+				CLEAR;
+		}	// FIN SWITCH
+	} while(choix != 0); // FIN DO
+}///
 
     void CptEpargne::Consulter()
-    {	Ligne();
+    {	CLEAR;
+		Ligne();
 		cout << "Compte Epargne n° " << Compte::numCompte << endl;
 		Ligne();
 		cout << endl << "Solde: " << Compte::solde << " €" << endl;
@@ -130,7 +119,8 @@
     }
 
     void CptEpargne::Ajouter()
-    {	double m;
+    {	CLEAR;
+		double m;
 		do
 		{	cout << endl << "Saisir le montant : ";	
 			cin >> m;
@@ -152,29 +142,31 @@
     }
 
     void CptEpargne::Retirer()
-	{	double m;
+	{	CLEAR;
+		double m;
 		do  // Controle d'un Montant non-nul (-> Retrait De 10€ Ou -10€ OK)
 		{ 	cout << endl << "Saisir le montant : ";
 			cin >> m;
 			if(m==0)
 				cout << endl << "Opération impossible" << endl;
 		} while(m == 0);	// Impossible De Retirer 0€	
-		
-			if(Compte::solde - m >= 0)
-			{ 	Compte::solde -= m;
-				Compte::Historique((-1)*m);
-				cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
-			}
-			else
-			{ 	cout << endl << "Minimum atteint, operation impossible" << endl;
-			}
-		cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl;
-		Poubelle();
-		CLEAR;
+	
+		if(Compte::solde - m >= 0)
+		{ 	Compte::solde -= m;
+			Compte::Historique((-1)*m);
+			cout << "Vous retirez " << m << "€ au compte n°" << Compte::numCompte << endl << "Nouveau solde : " << Compte::solde << endl;
 		}
+		else
+		{ 	cout << endl << "Minimum atteint, operation impossible" << endl;
+		}
+	cout << endl << endl << "Pressez la touche \'Entree\' pour continuer..." << endl;
+	Poubelle();
+	CLEAR;
+	}
 
     void CptEpargne::AjouterInterets()
-    { 	double res = Compte::solde*(interets/100);
+    { 	CLEAR;
+		double res = Compte::solde*(interets/100);
 		cout << interets << " % d\'interets appliqués a " << Compte::solde << " €";
 		Compte::solde += res;
 		cout << endl << "|- - > Benefice de " << res << " €";

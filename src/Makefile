@@ -5,8 +5,6 @@ SRC=$(wildcard *.c)
 # Cible principale
 ProjetBanque.cestparti: utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
 	$(Compilo) -o $@ utils.o date.o cptCourant.o cptEpargne.o cptBloque.o cptPEL.o compte.o client.o banque.o main.o
-
-
 # Test unitiaires
 test_banque: utils.o date.o compte.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o client.o banque.o test_banque.o
 	$(Compilo) -o test_banque.cestparti $^
@@ -35,6 +33,38 @@ test_date: utils.o date.o test_date.o
 test_utils: utils.o test_utils.o
 	$(Compilo) -o test_utils.cestparti $^
 	
+	
+# Dépendances 
+utils.o: utils.cpp utils.h
+	$(Compilo) -c utils.cpp
+
+date.o: date.cpp date.h utils.o
+	$(Compilo) -c date.cpp
+
+cptCourant.o: cptCourant.cpp cptCourant.h compte.o
+	$(Compilo) -c cptCourant.cpp
+
+cptEpargne.o: cptEpargne.cpp cptEpargne.h compte.o
+	$(Compilo) -c cptEpargne.cpp
+
+cptBloque.o: cptBloque.cpp cptBloque.h compte.o
+	$(Compilo) -c cptBloque.cpp
+
+cptPEL.o: cptPEL.cpp cptPEL.h compte.o
+	$(Compilo) -c cptPEL.cpp
+#	CLASSE ABSTRAITE NE PEUT ETRE INSTANCIEE --> devirtualiser Menu()=0; pour tester
+#compte.o: compte.cpp compte.h date.o utils.o
+#	$(Compilo) -c compte.cpp
+
+client.o: client.cpp client.h compte.o
+	$(Compilo) -c client.cpp
+
+banque.o: banque.cpp banque.h client.o
+	$(Compilo) -c banque.cpp
+
+main.o: main.cpp banque.o
+	$(Compilo) -c	main.cpp
+
 # Dépendances des tests unitaires
 test_banque.o: test_banque.cpp utils.o date.o cptBloque.o cptCourant.o cptEpargne.o cptPEL.o compte.o client.o banque.o
 	$(Compilo) -c $<
@@ -63,37 +93,7 @@ test_date.o: test_date.cpp utils.o date.o
 test_utils.o: test_utils.cpp utils.o
 	$(Compilo) -c $<
 	
-# Dépendances
-utils.o: utils.cpp utils.h
-	$(Compilo) -c utils.cpp
-
-date.o: date.cpp date.h utils.o
-	$(Compilo) -c date.cpp
-
-cptCourant.o: cptCourant.cpp cptCourant.h compte.o
-	$(Compilo) -c cptCourant.cpp
-
-cptEpargne.o: cptEpargne.cpp cptEpargne.h compte.o
-	$(Compilo) -c cptEpargne.cpp
-
-cptBloque.o: cptBloque.cpp cptBloque.h compte.o
-	$(Compilo) -c cptBloque.cpp
-
-cptPEL.o: cptPEL.cpp cptPEL.h compte.o
-	$(Compilo) -c cptPEL.cpp
-
-compte.o: compte.cpp compte.h date.o utils.o
-	$(Compilo) -c compte.cpp
-
-client.o: client.cpp client.h compte.o
-	$(Compilo) -c client.cpp
-
-banque.o: banque.cpp banque.h client.o
-	$(Compilo) -c banque.cpp
-
-main.o: main.cpp banque.o
-	$(Compilo) -c	main.cpp
-
+	
 # Cibles fictives
 MrProper:
 	@echo "Suppression des *.o"

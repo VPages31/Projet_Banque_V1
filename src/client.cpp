@@ -192,7 +192,7 @@ void Client::SupprimerCompte()
     int taille=0;
     unsigned int i;
     do
-    {
+    {	CLEAR;
         Ligne();
         cout<<endl<< " Type de compte a supprimer:"<<endl;
         cout<<endl<< " 1: Compte Courant"<<endl;
@@ -235,6 +235,7 @@ void Client::SupprimerCompte()
             }
             cout<< "Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
+            CLEAR;
             break;
         case '2':
             taille=(signed)listeLE.size();
@@ -264,6 +265,7 @@ void Client::SupprimerCompte()
             }
             cout<< "Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
+            CLEAR;
             break;
         case '3':
             taille=(signed)listeCB.size();
@@ -293,6 +295,7 @@ void Client::SupprimerCompte()
             }
             cout<< "Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
+            CLEAR;
             break;
         case '4':
             taille=(signed)listePEL.size();
@@ -322,6 +325,7 @@ void Client::SupprimerCompte()
             }
             cout<< "Appuyez sur Entree pour continuer"<<endl;
             Poubelle(); // vide le cache et met en pause avant d'effacer l'ecran
+            CLEAR;
             break;
         case '0':
             #ifdef DEBUG

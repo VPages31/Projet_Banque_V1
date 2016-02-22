@@ -27,7 +27,7 @@ void Compte::Ajouter (double montant) // Ajoute de l'argent au solde (prends en 
 }
 
 void Compte::Consulter() // Permet de consulter le solde et l'historique du compte
-{
+{ 	CLEAR;
 	int i = 0;
 	int taille=(signed)historique.size();
 	cout << endl << "Solde actuel : \t" << solde << " €" << endl;
@@ -75,5 +75,5 @@ void Compte::Historique(double s) // ajoute une transaction dans historique
     #ifdef DEBUG
 		cout << "Ajouter a l'historique " << (int)(this)<<endl;
 	#endif
-    historique.push_front( (signed) s);
+    historique.push_front( (signed) s);		// deque
 }
