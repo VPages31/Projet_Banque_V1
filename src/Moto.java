@@ -1,21 +1,31 @@
+/**
+ * 
+ */
+//package com.ldnr.vehicule;
 
+/**
+ * @author Vincent
+ *
+ */
 public final class Moto extends Vehicule {
-	
+	// Constructeur
 	public Moto() {
-		this.setVitesse(0); 
-		this.setNom("moto");
+		super();
+		setNom("moto");
+		setTPS(5);
 	}
-
+	// Methodes
 	@Override
-	void accelerer() {
+	void avancer() {
 		// Indique l'etat de marche du véhicule
-		System.out.println("La moto accelere energiquement...");
+		System.out.println("Le véhicule (" + getNom() + ") demarre");
+		System.out.println(" |--> il traverse le carrefour en " + getTPS() + " sec.");
 	}
 
 	@Override
-	void freiner() {
+	void arreter() {
 		// Indique l'etat d'arret du véhicule
-		System.out.println("La moto ralenti vivement...");
+		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
 	}
 
 }

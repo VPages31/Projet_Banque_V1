@@ -1,28 +1,36 @@
+/**
+ * 
+ */
+//package com.ldnr.vehicule;
 
+/**
+ * @author Vincent
+ *
+ */
 public abstract class Vehicule {
 	
-	private int vitesse;
 	private String nom;
+	private int tempsPassageSec;
 
-	
-	public Vehicule() {
-		this.vitesse = 0;	// un vehicule par default a l'arret
+	// Constructeurs \\
+	public Vehicule() {	
 	}
-	
-	int getVitesse() {
-		return this.vitesse;
-	}
+	 // Methodes \\
+	//   membres  
 	String getNom() {
 		return this.nom;
-	}
-	void setVitesse(int v) {
-		this.vitesse = v;
 	}
 	void setNom(String n) {
 		this.nom = n;
 	}
-	
-	abstract void accelerer();
-	abstract void freiner();
+	int getTPS() {
+		return this.tempsPassageSec;
+	}
+	void setTPS(int tps) {
+		this.tempsPassageSec = tps;
+	}
+	// abstraites 
+	abstract void avancer();
+	abstract void arreter();
 	
 }
