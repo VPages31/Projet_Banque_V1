@@ -27,7 +27,15 @@ public final class Moto extends Vehicule {
 		// Indique l'etat d'arret du véhicule
 		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
 	}
+	@Override
+	void action(boolean feuRouge) {
+		if(!feuRouge)
+			this.avancer();
+		else
+			this.arreter();	
+	}
 
+	
 }
 
 

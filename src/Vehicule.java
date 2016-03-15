@@ -11,7 +11,7 @@ public abstract class Vehicule {
 	
 	private String nom;
 	private int tempsPassageSec;
-
+	
 	// Constructeurs \\
 	public Vehicule() {	
 	}
@@ -29,8 +29,9 @@ public abstract class Vehicule {
 	void setTPS(int tps) {
 		this.tempsPassageSec = tps;
 	}
-	// abstraites 
+	
+	// abstraites
 	abstract void avancer();
 	abstract void arreter();
-	
+	abstract void action(boolean feuRouge);	
 }

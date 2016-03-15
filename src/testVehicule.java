@@ -1,27 +1,31 @@
 /**
  * 
  */
-//package com.ldnr.feu;
+//package com.ldnr.vehicule;
 
 /**
  * @author Vincent
  *
  */
-public class testVehicules {
+public class testVehicule {
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+	
+	boolean feuRouge;	
 	Moto M = new Moto();
 	Voiture V = new Voiture();
 	
-	System.out.println("\n  !!! Le feu passe au rouge !!!\n");
-	V.arreter();
-	M.arreter();
+	System.out.println("  !!! Le feu passe au rouge !!!\n");
+	feuRouge = true;
+	V.action(feuRouge);
+	M.action(feuRouge);
+	
 	System.out.println("\n  !!! Le feu passe au vert !!!\n");	
-	V.avancer();
-	M.avancer();
-	}
+	feuRouge = false;
+	V.action(feuRouge);
+	M.action(feuRouge);
 
+	}
 }

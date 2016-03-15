@@ -8,11 +8,13 @@
  *
  */
 public final class Voiture extends Vehicule {
+	// Donnees membres
+	
 	// Constructeur
 	public Voiture() {
 		super(); 
-		setNom("voiture");
-		setTPS(15);
+		this.setNom("voiture");
+		this.setTPS(15);
 	}
 	// Methodes
 	@Override
@@ -25,5 +27,14 @@ public final class Voiture extends Vehicule {
 	void arreter() {
 		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
 	}
-
+	
+	@Override
+	void action(boolean feuRouge) {
+		if(!feuRouge)
+			this.avancer();
+		else
+			this.arreter();
+	}
+	
+	
 }

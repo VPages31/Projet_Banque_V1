@@ -7,7 +7,7 @@
  * @author Benoit
  *
  */
-public class test {
+public class testAttente {
 
 	/**
 	 * @param args
