@@ -1,18 +1,15 @@
 
 public final class Voiture extends Vehicule {
-
-	private int nbPortes; 
 	
-	public Voiture(int vitesse) {
-		super(vitesse);
-		this.nbPortes = 4;
+	public Voiture() {
+		this.setVitesse(0); 
+		this.setNom("voiture");
 	}
 
 	@Override
 	void accelerer() {
 		 // Indique l'etat de marche du véhicule
-		System.out.println("La voiture accelere progressivement");
-		
+		System.out.println("La voiture accelere progressivement");	
 	}
 
 	@Override
