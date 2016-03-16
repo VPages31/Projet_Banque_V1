@@ -1,7 +1,7 @@
 /**
  * 
  */
-//package com.ldnr.vehicule;
+
 
 /**
  * @author Vincent
@@ -9,29 +9,29 @@
  */
 public abstract class Vehicule {
 	
-	private String nom;
-	private int tempsPassageSec;
+	protected String nom;
+	protected int tempsPassageSec;
 	
 	// Constructeurs \\
 	public Vehicule() {	
 	}
 	 // Methodes \\
 	//   membres  
-	String getNom() {
+	public String getNom() {
 		return this.nom;
 	}
-	void setNom(String n) {
+	public void setNom(String n) {
 		this.nom = n;
 	}
-	int getTPS() {
+	public int getTPS() {
 		return this.tempsPassageSec;
 	}
-	void setTPS(int tps) {
+	public void setTPS(int tps) {
 		this.tempsPassageSec = tps;
 	}
 	
 	// abstraites
 	abstract void avancer();
 	abstract void arreter();
-	abstract void action(boolean feuRouge);	
+	public abstract void action(boolean feuRouge);	
 }

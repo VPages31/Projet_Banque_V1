@@ -1,7 +1,7 @@
 /**
  * 
  */
-//package com.ldnr.vehicule;
+
 
 /**
  * @author Vincent
@@ -29,7 +29,7 @@ public final class Voiture extends Vehicule {
 	}
 	
 	@Override
-	void action(boolean feuRouge) {
+	public void action(boolean feuRouge) {
 		if(!feuRouge)
 			this.avancer();
 		else

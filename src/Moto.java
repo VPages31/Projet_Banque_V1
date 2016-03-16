@@ -1,7 +1,7 @@
 /**
  * 
  */
-//package com.ldnr.vehicule;
+
 
 /**
  * @author Vincent
@@ -28,7 +28,7 @@ public final class Moto extends Vehicule {
 		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
 	}
 	@Override
-	void action(boolean feuRouge) {
+	public void action(boolean feuRouge) {
 		if(!feuRouge)
 			this.avancer();
 		else

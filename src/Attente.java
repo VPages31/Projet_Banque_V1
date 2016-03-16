@@ -1,13 +1,13 @@
 /**
  * 
  */
-//package com.ldnr.feu;
+
 
 /**
  * @author Benoit
  *
  */
-public class Attente {
+public abstract class Attente {
 	
 	//données membres
 	public boolean arret;
