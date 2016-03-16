@@ -36,7 +36,7 @@ public class Menu {
 		ligne();
 		System.out.println("\n ---------- M E N U ---------- ");
 		ligne();
-		System.out.println(" 1 : Simulation automatique");
+		System.out.println("\n 1 : Simulation automatique");
 		System.out.println(" 2 : Gestion manuelle du feu");
 		System.out.println(" 3 : ");
 		System.out.println("\n 0 : ");
@@ -65,7 +65,7 @@ public class Menu {
 				System.out.println("temps restant: " +temps);
 				break;
 			case "2":
-				feuManuel(bouchon);
+				feuManuel(bouchon, feu1);
 				break;
 			case "3":
 				// au cas ou on veut ajouter qqchose
@@ -123,27 +123,33 @@ public class Menu {
 	 * 6: on demande si on veut passer le feu au rouge ou faire passer le vehicule suivant
 	 * jusqu'aï¿½ liste vide ou quitter
 	 */
-	public void feuManuel(Hashtable<Integer, Vehicule> bouchon) {
+	public void feuManuel(Hashtable<Integer, Vehicule> bouchon, Feu F) {
 		Scanner sc = new Scanner(System.in);
+		int choix = 0;
 		
-		for(int i = 0; i < bouchon.size(); ++i)
+		while((bouchon.size() > 0) && choix != 3)
 		{
-			System.out.println("Vehicule suivant : " + bouchon.get(0) );
-			System.out.println("1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 3 - Retour");
-			int choix = sc.nextInt();
-			switch(choix) 
+			for(int i = 0; i < bouchon.size(); ++i) 
 			{
-				case 1:
-					Vehicule enCours = bouchon.get(0);
-					enCours.action(false); // = feu rouge faux--> donc passageOK		
-				break;
-				case 2:
-					// Changement de feu
-					System.out.println("Le case 2");
-				break;
-				case 3:
-					// retour
-				break;
+				System.out.println("Vehicule suivant : " + bouchon.get(0) );			
+				System.out.println("\n1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 3 - Retour");
+				choix = sc.nextInt();
+				switch(choix) 
+				{
+					case 1:
+						Vehicule enCours = bouchon.get(0);	// 0 ou 1 that's the question
+						enCours.action(false); // = feu rouge faux--> donc passageOK
+						bouchon.remove(enCours); // le vehicule passe, il est supprimmé de la liste
+					break;
+					case 2:
+						F.Change();	// changement du feu et affichage en consequence inclus
+						ligne();
+						System.out.println("\n");
+					break;
+					case 3:
+					
+					break;
+				}
 			}
 		}
 		sc.close();
