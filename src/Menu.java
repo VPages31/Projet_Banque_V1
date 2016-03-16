@@ -32,9 +32,9 @@ public class Menu {
 		ligne();
 		System.out.println("\n ---------- M E N U ---------- ");
 		ligne();
-		System.out.println("\n 1 : Simulation automatique");
-		System.out.println(" 2 : Gestion manuelle du feu");
-		System.out.println(" 3 : ");
+		System.out.println("\n 1 : Simulation automatique (pendant le temps de votre choix");
+		System.out.println(" 2 : Simulation automatique (faire passer tous les vehicules)");
+		System.out.println(" 3 : Gestion manuelle du feu");
 		System.out.println("\n 0 : Quitter");
 		ligne();
 		int choix;
@@ -45,10 +45,10 @@ public class Menu {
 				feuAuto();
 				break;
 			case 2:
-				feuManuel();
+				feuAutoVide();
 				break;
 			case 3:
-				// au cas ou on veut ajouter qqchose
+				feuManuel();
 				break;
 			case 0:
 				System.out.println("Merci d'avoir utilise notre programme");
@@ -134,6 +134,29 @@ public class Menu {
 		//System.gc();
 	}
 	
+	public void feuAutoVide() {
+		feu.arret=true;
+		Vehicule enCours = bouchon.get(0);
+		int taille=bouchon.size();
+		int i=0;
+		do {
+			feu.Decompte();
+			int tps_total = feu.dureeArret;
+			// ici supprimmer les vehicules qui sont passes
+			while (tps_total > 0 && i < taille) {
+				enCours = bouchon.get(i);
+				int tps = enCours.getTPS();
+				tps_total = tps_total - tps;
+				enCours.action(false);
+				System.out.println(tps_total);
+				bouchon.remove(i);
+				i++;
+			}
+			AfficherBouchon(i); // affichage des vehicules restant
+		}
+		while (i<taille);
+	}
+	
 	/**
 	 * boucle:
 	 * 1: on affiche le prochain vehicule a�ｿｽ passer
@@ -181,6 +204,6 @@ public class Menu {
 			Vehicule enCours = this.bouchon.get(i);
 			System.out.print(" "+ enCours.getNom());
 		}
-		System.out.println(" ...");
+		System.out.println(" <route degagee>");
 	}
 }
