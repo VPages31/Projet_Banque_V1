@@ -47,7 +47,13 @@ public class Menu {
 						temps=temps-feu1.Decompte();
 						if (feu1.arret == true) { 
 							// ici supprimmer les véhicules qui sont passés
-							//
+							int temps = feu1.dureeArret;
+							while (temps > 0) {
+								Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier élément
+								int tps = enCours.getTPS();
+								temps = temps - tps;
+								bouchon.remove(1); //1 ou 0 ? le premier élément
+							}
 							bouchon.values(); // affichage des véhicules restant
 						}
 					}
@@ -102,6 +108,18 @@ public class Menu {
 		sc.close();
 	}
 	
+	/**
+	 * 
+	 * @param bouchon : liste des véhicules qui attendent au feu
+	 * boucle:
+	 * 1: on affiche le prochain véhicule à passer
+	 * 2: on passe le feu au vert
+	 * 3: on fait passer le véhicule
+	 * 4: on supprimme le véhicule de la liste
+	 * 5: on affiche le véhicule suivant
+	 * 6: on demande si on veut passer le feu au rouge ou faire passer le véhicule suivant
+	 * jusqu'à liste vide ou quitter
+	 */
 	public void feuManuel(Hashtable<Integer, Vehicule> bouchon) {
 		//
 	}
