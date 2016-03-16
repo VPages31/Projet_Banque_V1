@@ -1,15 +1,14 @@
 /**
  * 
  */
-//package com.ldnr.feu;
-
 import java.util.Hashtable;
 import java.util.Scanner;
-
-//import com.ldnr.vehicule.Vehicule;
-//import com.ldnr.vehicule.Moto;
-//import com.ldnr.vehicule.Voiture;
-
+/*
+package com.ldnr.feu;
+import com.ldnr.vehicule.Vehicule;
+import com.ldnr.vehicule.Moto;
+import com.ldnr.vehicule.Voiture;
+*/
 /**
  * @author Benoit
  *
@@ -18,10 +17,13 @@ public class Menu {
 	//Donnees Membres
 	protected int nbLigne = 40;
 	protected int temps=100;
+	public Hashtable<Integer, Vehicule> bouchon;
 	
 	public Menu() {
-		Hashtable<Integer, Vehicule> bouchon = 
-				new Hashtable<Integer, Vehicule>();
+		this.bouchon = new Hashtable<Integer, Vehicule>();
+	}
+	
+	public void call() {
 		if (bouchon.size() < 1) {
 			initialize(bouchon);
 		}
@@ -112,13 +114,13 @@ public class Menu {
 	 * 
 	 * @param bouchon : liste des vehicules qui attendent au feu
 	 * boucle:
-	 * 1: on affiche le prochain vehicule a  passer
+	 * 1: on affiche le prochain vehicule aï¿½ passer
 	 * 2: on passe le feu au vert
 	 * 3: on fait passer le vehicule
 	 * 4: on supprimme le vehicule de la liste
 	 * 5: on affiche le vehicule suivant
 	 * 6: on demande si on veut passer le feu au rouge ou faire passer le vehicule suivant
-	 * jusqu'a  liste vide ou quitter
+	 * jusqu'aï¿½ liste vide ou quitter
 	 */
 	public void feuManuel(Hashtable<Integer, Vehicule> bouchon) {
 		Scanner sc = new Scanner(System.in);
@@ -131,7 +133,8 @@ public class Menu {
 			switch(choix) 
 			{
 				case 1:
-					bouchon.get(0).action(false); // = feu rouge faux--> donc passageOK		
+					Vehicule enCours = bouchon.get(0);
+					enCours.action(false); // = feu rouge faux--> donc passageOK		
 				break;
 				case 2:
 					// Changement de feu

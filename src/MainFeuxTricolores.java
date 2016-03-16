@@ -3,6 +3,8 @@
  */
 //package com.ldnr.mains;
 
+//import com.ldnr.feu.Menu;
+
 /**
  * @author Vincent
  *
@@ -13,7 +15,7 @@ public class MainFeuxTricolores {
 
 		Menu m = new Menu();
 		
-		m.ligne();
+		m.call();
 		
 		
 		
