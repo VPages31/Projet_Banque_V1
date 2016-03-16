@@ -86,11 +86,12 @@ public class Menu {
 				break;
 			}
 		}
-		this.AfficherBouchon();
+		this.AfficherBouchon(taille);
 		//System.gc();
 	}
 	
 	/**
+	 * boucle:
 	 * Affiche un compteur pour simuler l'ecoulement du temps
 	 * avec alternance des feux
 	 * A chaque feu rouge :
@@ -99,24 +100,34 @@ public class Menu {
 	 * on soustrait le temps du premier vehicule au temps total
 	 * on supprime le premier vehicule
 	 * et on recommence jusqu'a avoir un temps total <= 0;
+	 * fin boucle: des que le temps entre par l'utilisateur est <=0
 	 */
 	public void feuAuto() {
 		System.out.println("Merci d'entrer le temps de la simulation: ");
 		temps = sc.nextInt();
-		feu.arret=false;
+		feu.arret=true;
+		Vehicule enCours = bouchon.get(0);
+		int i=0; //compteur de vehicule
 		do {
-			if (feu.arret == true) { 
+			if (feu.arret == false) { 
 				int tps_total = feu.dureeArret;
 				// ici supprimmer les vehicules qui sont passes
 				while (tps_total > 0) {
-					Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier element
+					enCours = bouchon.get(i);
 					int tps = enCours.getTPS();
-					tps_total = tps_total - tps; 
-					bouchon.remove(1); //1 ou 0 ? le premier element
+					tps_total = tps_total - tps;
+					enCours.action(false);
+					System.out.println(tps_total);
+					bouchon.remove(i);
+					i++;
 				}
-				this.AfficherBouchon(); // affichage des vehicules restant
+				AfficherBouchon(i); // affichage des vehicules restant
+				temps=temps-feu.dureeAvance;
 			}
-			temps=temps-feu.Decompte();
+			else {
+				feu.Decompte();
+				temps=temps-feu.dureeArret;
+			}
 		}
 		while (temps > 0);
 		System.out.println("temps restant: " +temps);
@@ -124,8 +135,6 @@ public class Menu {
 	}
 	
 	/**
-	 * 
-	 * @param bouchon : liste des vehicules qui attendent au feu
 	 * boucle:
 	 * 1: on affiche le prochain vehicule a�ｿｽ passer
 	 * 2: on passe le feu au vert
@@ -165,9 +174,10 @@ public class Menu {
 		//System.gc();
 	}
 	
-	public void AfficherBouchon() {
+	public void AfficherBouchon(int n) {
 		int taille = this.bouchon.size();
-		for (int i=0; i<taille; i++) {
+		System.out.println("Vehicules dans la file: ");
+		for (int i=n; i<taille; i++) {
 			Vehicule enCours = this.bouchon.get(i);
 			System.out.print(" "+ enCours.getNom());
 		}
