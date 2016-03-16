@@ -1,21 +1,21 @@
 /**
  * 
  */
-package com.ldnr.feu;
+//package com.ldnr.feu;
 
 import java.util.Hashtable;
 import java.util.Scanner;
 
-import com.ldnr.vehicule.Vehicule;
-import com.ldnr.vehicule.Moto;
-import com.ldnr.vehicule.Voiture;
+//import com.ldnr.vehicule.Vehicule;
+//import com.ldnr.vehicule.Moto;
+//import com.ldnr.vehicule.Voiture;
 
 /**
  * @author Benoit
  *
  */
 public class Menu {
-	//Données Membres
+	//Donnees Membres
 	protected int nbLigne = 40;
 	protected int temps=100;
 	
@@ -46,15 +46,15 @@ public class Menu {
 					do {
 						temps=temps-feu1.Decompte();
 						if (feu1.arret == true) { 
-							// ici supprimmer les véhicules qui sont passés
+							// ici supprimmer les vehicules qui sont passes
 							int temps = feu1.dureeArret;
 							while (temps > 0) {
-								Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier élément
+								Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier element
 								int tps = enCours.getTPS();
 								temps = temps - tps;
-								bouchon.remove(1); //1 ou 0 ? le premier élément
+								bouchon.remove(1); //1 ou 0 ? le premier element
 							}
-							bouchon.values(); // affichage des véhicules restant
+							bouchon.values(); // affichage des vehicules restant
 						}
 					}
 					while (temps > 0);
@@ -67,7 +67,7 @@ public class Menu {
 					// au cas ou on veut ajouter qqchose
 					break;
 				case "0":
-					System.out.println("Merci d'avoir utilisé notre programme");
+					System.out.println("Merci d'avoir utilise notre programme");
 					break;
 				default:
 					System.out.println("Choix non reconnu");
@@ -101,7 +101,7 @@ public class Menu {
 				bouchon.put(i, voiture);
 				break;
 			default:
-				System.out.println("Erreur: le caractère "+ (i+1) +" n'est pas reconnu");
+				System.out.println("Erreur: le caractere "+ (i+1) +" n'est pas reconnu");
 				break;
 			}
 		}
@@ -110,17 +110,38 @@ public class Menu {
 	
 	/**
 	 * 
-	 * @param bouchon : liste des véhicules qui attendent au feu
+	 * @param bouchon : liste des vehicules qui attendent au feu
 	 * boucle:
-	 * 1: on affiche le prochain véhicule à passer
+	 * 1: on affiche le prochain vehicule a� passer
 	 * 2: on passe le feu au vert
-	 * 3: on fait passer le véhicule
-	 * 4: on supprimme le véhicule de la liste
-	 * 5: on affiche le véhicule suivant
-	 * 6: on demande si on veut passer le feu au rouge ou faire passer le véhicule suivant
-	 * jusqu'à liste vide ou quitter
+	 * 3: on fait passer le vehicule
+	 * 4: on supprimme le vehicule de la liste
+	 * 5: on affiche le vehicule suivant
+	 * 6: on demande si on veut passer le feu au rouge ou faire passer le vehicule suivant
+	 * jusqu'a� liste vide ou quitter
 	 */
 	public void feuManuel(Hashtable<Integer, Vehicule> bouchon) {
-		//
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0; i < bouchon.size(); ++i)
+		{
+			System.out.println("Vehicule suivant : " + bouchon.get(0) );
+			System.out.println("1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 3 - Retour");
+			int choix = sc.nextInt();
+			switch(choix) 
+			{
+				case 1:
+					bouchon.get(0).action(false); // = feu rouge faux--> donc passageOK		
+				break;
+				case 2:
+					// Changement de feu
+					System.out.println("Le case 2");
+				break;
+				case 3:
+					// retour
+				break;
+			}
+		}
+		sc.close();
 	}
 }

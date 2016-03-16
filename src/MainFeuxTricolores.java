@@ -10,19 +10,13 @@
 public class MainFeuxTricolores {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Feu feu1 = new Feu();
-		Moto m = new Moto();
-		Voiture v = new Voiture();
-		int temps=100;
+
+		Menu m = new Menu();
 		
-		do {
-			temps=temps-feu1.Decompte();
-			m.action(feu1.arret);
-			v.action(feu1.arret);
-		} while (temps > 0);
+		m.ligne();
 		
-		System.out.println("temps restant: " +temps);
+		
+		
 		
 	}
 }
