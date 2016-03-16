@@ -11,7 +11,7 @@ import com.ldnr.vehicule.Moto;
 import com.ldnr.vehicule.Voiture;
 
 /**
- * @author JB
+ * @author Benoit
  *
  */
 public class Menu {
@@ -43,13 +43,22 @@ public class Menu {
 				case "1":
 					System.out.println("Merci d'entrer le temps de la simulation: ");
 					temps = sc.nextInt();
-					//
+					do {
+						temps=temps-feu1.Decompte();
+						if (feu1.arret == true) { 
+							// ici supprimmer les véhicules qui sont passés
+							//
+							bouchon.values(); // affichage des véhicules restant
+						}
+					}
+					while (temps > 0);
+					System.out.println("temps restant: " +temps);
 					break;
 				case "2":
-					//
+					feuManuel(bouchon);
 					break;
 				case "3":
-					//
+					// au cas ou on veut ajouter qqchose
 					break;
 				case "0":
 					System.out.println("Merci d'avoir utilisé notre programme");
@@ -91,5 +100,9 @@ public class Menu {
 			}
 		}
 		sc.close();
+	}
+	
+	public void feuManuel(Hashtable<Integer, Vehicule> bouchon) {
+		//
 	}
 }
