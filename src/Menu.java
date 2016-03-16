@@ -86,8 +86,7 @@ public class Menu {
 				break;
 			}
 		}
-		this.AfficherBouchon(taille);
-		//System.gc();
+		this.AfficherBouchon(0);
 	}
 	
 	/**
@@ -131,7 +130,6 @@ public class Menu {
 		}
 		while (temps > 0);
 		System.out.println("temps restant: " +temps);
-		//System.gc();
 	}
 	
 	public void feuAutoVide() {
@@ -204,7 +202,6 @@ public class Menu {
 				}
 			}
 		}
-		//System.gc();
 	}
 	
 	public void AfficherBouchon(int n) {
@@ -212,7 +209,7 @@ public class Menu {
 		System.out.println("Vehicules dans la file: ");
 		for (int i=n; i<taille; i++) {
 			Vehicule enCours = this.bouchon.get(i);
-			System.out.print(" "+ enCours.getNom());
+			System.out.print(" "+ enCours.nom);
 		}
 		System.out.println(" <route degagee>");
 	}
