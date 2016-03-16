@@ -169,27 +169,37 @@ public class Menu {
 	 */
 	public void feuManuel() {
 		int choix = 9;
+		int num=0;
+		Vehicule enCours = bouchon.get(0);
 		while((bouchon.size() > 0) && choix != 0)
 		{
 			for(int i = 0; i < bouchon.size(); ++i) 
 			{
-				System.out.println("Vehicule suivant : " + bouchon.get(0) );
+				enCours = bouchon.get(num);
+				System.out.println("Vehicule suivant : " + enCours.nom );
 				System.out.println("1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 3 - Retour");
 				choix = sc.nextInt();
 				switch(choix) 
 				{
-					case 1:
-						Vehicule enCours = bouchon.get(0);	// 0 ou 1 that's the question
+				case 1:
+					if (feu.arret==false) 
+					{
 						enCours.action(false); // = feu rouge faux--> donc passageOK
-						bouchon.remove(enCours); // le vehicule passe, il est supprimm顤e la liste
+						bouchon.remove(enCours); // le vehicule passe, il est supprimme de la liste
+						num++;
+					}
+					else
+					{
+						System.out.println(" Impossible - Le feu est rouge - \n");
+					}
 					break;
-					case 2:
-						feu.Change();	// changement du feu et affichage en consequence inclus
-						ligne();
-						System.out.println("\n");
+				case 2:
+					feu.Change();	// changement du feu et affichage en consequence inclus
+					ligne();
+					System.out.println("\n");
 					break;
-					case 0:
-						// retour
+				case 0:
+					// retour
 					break;
 				}
 			}
