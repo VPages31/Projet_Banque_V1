@@ -1,14 +1,16 @@
 /**
  * 
  */
-import java.util.Hashtable;
-import java.util.Scanner;
-/*
+ /*
 package com.ldnr.feu;
 import com.ldnr.vehicule.Vehicule;
 import com.ldnr.vehicule.Moto;
 import com.ldnr.vehicule.Voiture;
 */
+import java.util.Hashtable;
+import java.util.Scanner;
+
+
 /**
  * @author Benoit
  *
@@ -27,58 +29,57 @@ public class Menu {
 		if (bouchon.size() < 1) {
 			initialize(bouchon);
 		}
-		else {
-			String choix= "z";
-			Feu feu1 = new Feu();
-			Scanner sc = new Scanner(System.in);
-			ligne();
-			System.out.println(" ---------- M E N U ---------- ");
-			ligne();
-			System.out.println(" 1 : Simulation automatique");
-			System.out.println(" 2 : Gestion manuelle du feu");
-			System.out.println(" 3 : ");
-			System.out.println("\n 0 : ");
-			ligne();
-			do {
-				choix = sc.nextLine();
-				switch (choix) {
-				case "1":
-					System.out.println("Merci d'entrer le temps de la simulation: ");
-					temps = sc.nextInt();
-					do {
-						temps=temps-feu1.Decompte();
-						if (feu1.arret == true) { 
-							// ici supprimmer les vehicules qui sont passes
-							int temps = feu1.dureeArret;
-							while (temps > 0) {
-								Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier element
-								int tps = enCours.getTPS();
-								temps = temps - tps;
-								bouchon.remove(1); //1 ou 0 ? le premier element
-							}
-							bouchon.values(); // affichage des vehicules restant
+		else {}
+		String choix= "z";
+		Feu feu1 = new Feu();
+		Scanner sc = new Scanner(System.in);
+		ligne();
+		System.out.println("\n ---------- M E N U ---------- ");
+		ligne();
+		System.out.println(" 1 : Simulation automatique");
+		System.out.println(" 2 : Gestion manuelle du feu");
+		System.out.println(" 3 : ");
+		System.out.println("\n 0 : ");
+		ligne();
+		do {
+			choix = sc.nextLine();
+			switch (choix) {
+			case "1":
+				System.out.println("Merci d'entrer le temps de la simulation: ");
+				temps = sc.nextInt();
+				do {
+					temps=temps-feu1.Decompte();
+					if (feu1.arret == true) { 
+						// ici supprimmer les vehicules qui sont passes
+						int temps = feu1.dureeArret;
+						while (temps > 0) {
+							Vehicule enCours = bouchon.get(1); //1 ou 0 ? le premier element
+							int tps = enCours.getTPS();
+							temps = temps - tps;
+							bouchon.remove(1); //1 ou 0 ? le premier element
 						}
+						bouchon.values(); // affichage des vehicules restant
 					}
-					while (temps > 0);
-					System.out.println("temps restant: " +temps);
-					break;
-				case "2":
-					feuManuel(bouchon);
-					break;
-				case "3":
-					// au cas ou on veut ajouter qqchose
-					break;
-				case "0":
-					System.out.println("Merci d'avoir utilise notre programme");
-					break;
-				default:
-					System.out.println("Choix non reconnu");
-					break;
 				}
+				while (temps > 0);
+				System.out.println("temps restant: " +temps);
+				break;
+			case "2":
+				feuManuel(bouchon);
+				break;
+			case "3":
+				// au cas ou on veut ajouter qqchose
+				break;
+			case "0":
+				System.out.println("Merci d'avoir utilise notre programme");
+				break;
+			default:
+				System.out.println("Choix non reconnu");
+				break;
 			}
-			while (choix !="0");
-			sc.close();
 		}
+		while (choix !="0");
+		sc.close();
 	}
 	
 	public void ligne() {
