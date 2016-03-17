@@ -89,6 +89,7 @@ public class Menu {
 	
 	public void ajouterVehicules() {
 		System.gc();
+		System.out.println(bouchon.keys());
 		System.out.println("Merci de remplir la file de voiture\nsous la forme: 11221111212122...\navec: 1 pour moto, 2 pour voiture");
 		if (sc.hasNext() && this.nbVehiculesTotal > 0) {
 			String poubelle=sc.nextLine();
@@ -100,7 +101,7 @@ public class Menu {
 		Voiture voiture = new Voiture();
 		int id=this.bouchon.size();
 		for (int i=id; i<(id+taille) ; i++) {
-			switch (bouchon_s.charAt(i)) {
+			switch (bouchon_s.charAt(i-id)) {
 			case '1':
 				System.out.println(" ajout d'une moto " +i);
 				try { this.bouchon.putIfAbsent(i, moto); }
