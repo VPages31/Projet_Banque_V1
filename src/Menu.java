@@ -68,6 +68,7 @@ public class Menu {
 		for (int i = 0; i < this.nbLigne; i++) {
 			System.out.print("*");
 		}
+		System.out.print("\n");
 	}
 	
 	public void initialize() {
@@ -79,10 +80,12 @@ public class Menu {
 		for (int i=0; i<taille ; i++) {
 			switch (bouchon_s.charAt(i)) {
 			case '1':
-				this.bouchon.put(i, moto);
+				try { this.bouchon.put(i, moto); }
+					catch (Exception e) { }
 				break;
 			case '2':
-				this.bouchon.put(i, voiture);
+				try { this.bouchon.put(i, voiture); }
+				catch (Exception e) { }
 				break;
 			default:
 				System.out.println("Erreur: le caractere "+ (i+1) +" n'est pas reconnu");
@@ -210,8 +213,8 @@ public class Menu {
 	public void AfficherBouchon(int n) {
 		int taille = this.bouchon.size();
 		if(bouchon.size() > 0)	{
-			System.out.println("<Vehicules dans la file: \n");
 			ligne();
+			System.out.println("<Vehicules dans la file: ");
 			for (int i=n; i<taille; i++) {
 				Vehicule enCours = this.bouchon.get(i);
 				System.out.print(" "+ enCours.nom);
