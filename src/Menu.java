@@ -28,11 +28,10 @@ public class Menu {
 		if (this.bouchon.size() < 1) {
 			initialize();
 		}
-		else { System.out.println("un bouchon existe"); }
 		ligne();
 		System.out.println("\n ---------- M E N U ---------- ");
 		ligne();
-		System.out.println("\n 1 : Simulation automatique (pendant le temps de votre choix");
+		System.out.println("\n 1 : Simulation automatique (pendant le temps de votre choix)");
 		System.out.println(" 2 : Simulation automatique (faire passer tous les vehicules)");
 		System.out.println(" 3 : Gestion manuelle du feu");
 		System.out.println("\n 0 : Quitter");
@@ -86,7 +85,8 @@ public class Menu {
 				break;
 			}
 		}
-		this.AfficherBouchon(0);
+		this.AfficherBouchon(taille);
+		//System.gc();
 	}
 	
 	/**
@@ -130,6 +130,7 @@ public class Menu {
 		}
 		while (temps > 0);
 		System.out.println("temps restant: " +temps);
+		//System.gc();
 	}
 	
 	public void feuAutoVide() {
@@ -202,15 +203,24 @@ public class Menu {
 				}
 			}
 		}
+		//System.gc();
 	}
 	
 	public void AfficherBouchon(int n) {
 		int taille = this.bouchon.size();
-		System.out.println("Vehicules dans la file: ");
-		for (int i=n; i<taille; i++) {
-			Vehicule enCours = this.bouchon.get(i);
-			System.out.print(" "+ enCours.nom);
+		if(bouchon.size() > 0)	{
+			System.out.println(" <un bouchon existe>");
+			System.out.println("Vehicules dans la file: \n");
+			ligne();
+			
+			for (int i=n; i<taille; i++) {
+				Vehicule enCours = this.bouchon.get(i);
+				System.out.print(" "+ enCours.nom);
+			}
+			System.out.print("\n");
+			ligne();
 		}
-		System.out.println(" <route degagee>");
+		else
+			System.out.println(" <route degagee>");	
 	}
 }

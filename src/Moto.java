@@ -18,14 +18,14 @@ public final class Moto extends Vehicule {
 	@Override
 	void avancer() {
 		// Indique l'etat de marche du véhicule
-		System.out.println("Le véhicule (" + getNom() + ") demarre");
-		System.out.println(" |--> il traverse le carrefour en " + getTPS() + " sec.");
+		System.out.println("\nLe vehicule (" + getNom() + ") demarre\n");
+		System.out.println(" |--> il traverse le carrefour en " + getTPS() + " sec.\n");
 	}
 
 	@Override
 	void arreter() {
 		// Indique l'etat d'arret du véhicule
-		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
+		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete\n");
 	}
 	@Override
 	public void action(boolean feuRouge) {

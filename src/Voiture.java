@@ -19,13 +19,13 @@ public final class Voiture extends Vehicule {
 	// Methodes
 	@Override
 	void avancer() {
-		System.out.println("Le vehicule (" + getNom() + ") demarre");
-		System.out.println(" |--> il traverse le carrefour en " + getTPS() + " sec.");
+		System.out.println("\nLe vehicule (" + getNom() + ") demarre\n");
+		System.out.println(" |--> il traverse le carrefour en " + getTPS() + " sec.\n");
 	}
 
 	@Override
 	void arreter() {
-		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete");
+		System.out.println("Le vehicule (" + getNom() + ") freine et s'arrete\n");
 	}
 	
 	@Override
