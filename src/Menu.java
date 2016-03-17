@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Menu {
 	//Donnees Membres
-	protected int nbLigne = 40;
+	protected int nbLigne = 50;
 	protected int temps=100;
 	protected Hashtable<Integer, Vehicule> bouchon;
 	protected Feu feu;
@@ -33,7 +33,11 @@ public class Menu {
 		}
 		else { System.out.println("un bouchon existe"); }
 		ligne();
-		System.out.println("\n ---------- M E N U ---------- ");
+		System.out.println(" ---  _ _  _ _    _ ____   _  _    _    _     _  --- ");
+		System.out.println(" --- | | \\/ | |  | |____  | |\\ \\  | |  | |   | | --- ");
+		System.out.println(" --- | |\\  /| |  | |===   | | \\ \\ | |  | |   | | --- ");
+		System.out.println(" --- | | \\/ | |  | |____  | |  \\ \\| |  | |___| | --- ");
+		System.out.println(" --- | |    | |  | |____  | |   \\_| |  \\_ ___ _/ --- \n");
 		ligne();
 		System.out.println("\n 1 : Simulation automatique (pendant le temps de votre choix)");
 		System.out.println(" 2 : Simulation automatique (faire passer tous les vehicules)");
