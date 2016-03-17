@@ -12,8 +12,9 @@ import java.util.Scanner;
  */
 public class Menu {
 	//Donnees Membres
-	protected int nbLigne = 50;
+	protected int nbLigne = 55;
 	protected int temps=100;
+	protected int nbVehicules; //nombre total de vehicules dans le programme (passés et en attente)
 	protected Hashtable<Integer, Vehicule> bouchon;
 	protected Feu feu;
 	protected Scanner sc;
@@ -25,6 +26,7 @@ public class Menu {
 			catch (Exception e) { }
 		try { this.sc = new Scanner(System.in); }
 			catch (Exception e) { }
+		this.nbVehicules = 0;
 	}
 	
 	public void call() {
@@ -33,15 +35,17 @@ public class Menu {
 		}
 		else { System.out.println("un bouchon existe"); }
 		ligne();
-		System.out.println(" ---  _ _  _ _    _ ____   _  _    _    _     _  --- ");
-		System.out.println(" --- | | \\/ | |  | |____  | |\\ \\  | |  | |   | | --- ");
-		System.out.println(" --- | |\\  /| |  | |===   | | \\ \\ | |  | |   | | --- ");
-		System.out.println(" --- | | \\/ | |  | |____  | |  \\ \\| |  | |___| | --- ");
-		System.out.println(" --- | |    | |  | |____  | |   \\_| |  \\_ ___ _/ --- \n");
+		System.out.println(" ---  _ _   _ _    _ ____    _ _     _    _     _  --- ");
+		System.out.println(" --- | | \\_/ | |  | |____|  | | \\   | |  | |   | | --- ");
+		System.out.println(" --- | |\\   /| |  | |___    | |\\ \\  | |  | |   | | --- ");
+		System.out.println(" --- | | \\_/ | |  | |___|   | | \\ \\ | |  | |   | | --- ");
+		System.out.println(" --- | |     | |  | |____   | |  \\ \\| |  | |___| | --- ");
+		System.out.println(" --- |_|     |_|  |_|____|  |_|   \\_|_|  \\_______/ --- \n");
 		ligne();
 		System.out.println("\n 1 : Simulation automatique (pendant le temps de votre choix)");
 		System.out.println(" 2 : Simulation automatique (faire passer tous les vehicules)");
 		System.out.println(" 3 : Gestion manuelle du feu");
+		System.out.println(" 4 : Ajouter des vehicules au feu");
 		System.out.println("\n 0 : Quitter");
 		ligne();
 		int choix;
@@ -56,6 +60,9 @@ public class Menu {
 				break;
 			case 3:
 				feuManuel();
+				break;
+			case 4:
+				initialize();
 				break;
 			case 0:
 				System.out.println("Merci d'avoir utilise notre programme");
@@ -81,7 +88,7 @@ public class Menu {
 		int taille= bouchon_s.length();
 		Moto moto = new Moto();
 		Voiture voiture = new Voiture();
-		for (int i=0; i<taille ; i++) {
+		for (int i=nbVehicules; i<taille ; i++) {
 			switch (bouchon_s.charAt(i)) {
 			case '1':
 				try { this.bouchon.put(i, moto); }
@@ -97,6 +104,7 @@ public class Menu {
 			}
 		}
 		this.AfficherBouchon(0);
+		this.nbVehicules=this.nbVehicules + taille;
 	}
 	
 	/**
