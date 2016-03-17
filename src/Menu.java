@@ -19,15 +19,19 @@ public class Menu {
 	protected Scanner sc;
 	
 	public Menu() {
-		this.bouchon = new Hashtable<Integer, Vehicule>();
-		this.feu = new Feu();
-		this.sc = new Scanner(System.in);
+		try { this.bouchon = new Hashtable<Integer, Vehicule>(); }
+			catch (Exception e) { }
+		try { this.feu = new Feu(); }
+			catch (Exception e) { }
+		try { this.sc = new Scanner(System.in); }
+			catch (Exception e) { }
 	}
 	
 	public void call() {
 		if (this.bouchon.size() < 1) {
 			initialize();
 		}
+		else { System.out.println("un bouchon existe"); }
 		ligne();
 		System.out.println("\n ---------- M E N U ---------- ");
 		ligne();
@@ -85,8 +89,7 @@ public class Menu {
 				break;
 			}
 		}
-		this.AfficherBouchon(taille);
-		//System.gc();
+		this.AfficherBouchon(0);
 	}
 	
 	/**
@@ -130,7 +133,6 @@ public class Menu {
 		}
 		while (temps > 0);
 		System.out.println("temps restant: " +temps);
-		//System.gc();
 	}
 	
 	public void feuAutoVide() {
@@ -203,24 +205,21 @@ public class Menu {
 				}
 			}
 		}
-		//System.gc();
 	}
-	
+
 	public void AfficherBouchon(int n) {
 		int taille = this.bouchon.size();
 		if(bouchon.size() > 0)	{
-			System.out.println(" <un bouchon existe>");
-			System.out.println("Vehicules dans la file: \n");
+			System.out.println("<Vehicules dans la file: \n");
 			ligne();
-			
 			for (int i=n; i<taille; i++) {
 				Vehicule enCours = this.bouchon.get(i);
 				System.out.print(" "+ enCours.nom);
 			}
-			System.out.print("\n");
+			System.out.print(" >\n");
 			ligne();
 		}
 		else
-			System.out.println(" <route degagee>");	
+			System.out.println(" <route degagee>");
 	}
 }
