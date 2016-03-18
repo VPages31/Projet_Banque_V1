@@ -194,24 +194,24 @@ public class Menu {
 	}
 	
 	/**
-	 * boucle:
-	 * 1: on affiche le prochain vehicule a�ｿｽ passer
+	 * @boucle :
+	 * 1: on affiche le prochain vehicule a passer
 	 * 2: on passe le feu au vert
 	 * 3: on fait passer le vehicule
 	 * 4: on supprimme le vehicule de la liste
 	 * 5: on affiche le vehicule suivant
 	 * 6: on demande si on veut passer le feu au rouge ou faire passer le vehicule suivant
-	 * jusqu'a�ｿｽ liste vide ou quitter
+	 * jusqu'a liste vide ou quitter
 	 */
 	public void feuManuel() {
 		int choix = 9;
-		int num=0;
+		int num=0;	
 		Vehicule enCours = bouchon.get(0);
 		while((this.enAttente > 0) && choix != 0)
 		{
 			enCours = bouchon.get(num);
-				System.out.println("Vehicule suivant : " + enCours.nom );
-				System.out.println("1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 0 - Retour");
+				System.out.println("Vehicule suivant a passer: " + enCours.nom );
+				System.out.println(" 1 - Laisser passer le vehicule suivant \n 2 - Changer la couleur du feu \n 0 - Retour");
 				choix = sc.nextInt();
 				switch(choix) 
 				{
@@ -225,7 +225,8 @@ public class Menu {
 					}
 					else
 					{
-						System.out.println(" Impossible - Le feu est rouge - \n");
+						System.out.println(" !!!!!!! Impossible - Le feu est rouge - !!!!!!!\n");
+						ligne();
 					}
 					break;
 				case 2:
